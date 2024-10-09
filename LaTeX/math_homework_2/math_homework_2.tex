@@ -1,0 +1,168 @@
+\documentclass{report}
+
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{diffcoeff,amssymb}
+\usepackage{mathtools}
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+
+
+
+\title{\Huge{Матан}\\ Решение дз №2}
+\author{\huge{Евгений Турчанин}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\qs{}{
+Доказать:
+\begin{itemize}
+  \item $(A \cup B) \cap\left(A^{c} \cup B^{c}\right)=A \cup B$
+  \item $A \Delta(B \Delta C)=(A \Delta B) \Delta C$
+  \item $A \cap(B \Delta C)=(A \cap B) \Delta(A \cap C)$\\
+\end{itemize}
+}
+
+\sol \begin{itemize}
+  \item $(A \cup B) \cap\left(A^{c} \cup B^{c}\right)=A \cup B$
+	Перепишем эти выражения по определению:
+	\begin{center}
+	\begin{equation}
+		(x \in A \vee x \in B) \cap (x \notin A \vee x \notin B)\Leftrightarrow
+	\end{equation}
+	\end{center}
+  \item $A \Delta(B \Delta C)=(A \Delta B) \Delta C$
+	\begin{center}
+	\begin{equation}
+	A \Delta(B \Delta C) \Leftrightarrow A \Delta (x \in B \wedge x \notin C) \vee (x \notin B \wedge x \in C) \Leftrightarrow
+	\end{equation}
+	\begin{equation}
+		(x \in A \wedge x \in B \wedge x \notin C) \vee (x \in A \wedge x \notin B \wedge x \in C) \vee (x \notin A \wedge x \in B \wedge x \in C)
+	\end{equation}
+	\begin{equation}
+	(A \Delta B) \Delta C \Leftrightarrow (x \in A \wedge x \notin B) \vee (x \notin A \wedge x \in B) \Delta C \Leftrightarrow
+	\end{equation}
+	\begin{equation}
+		(x \in A \wedge x \in B \wedge x \notin C) \vee (x \in A \wedge x \notin B \wedge x \in C) \vee (x \notin A \wedge x \in B \wedge x \in C)
+	\end{equation}
+	Ч.Т.Д.
+	\end{center}
+  \item $A \cap(B \Delta C)=(A \cap B) \Delta(A \cap C)$
+	\begin{center}
+	\begin{equation}
+	A \cap(B \Delta C)\Leftrightarrow A \cap ((x \in B \wedge x \notin C) \vee (x \notin B \wedge x \in C))\Leftrightarrow
+	\end{equation}
+	\begin{equation}
+	(x \in A \wedge x \in B \wedge x \notin C) \vee (x \in A \wedge x \notin B \wedge x \in C)
+	\end{equation}
+	\begin{equation}
+	(A \cap B) \Delta(A \cap C) \Leftrightarrow (x \in A \wedge x \in B)\Delta (x \in A \wedge x \in C) \Leftrightarrow
+	\end{equation}
+	\begin{equation}
+	(x \in A \wedge x \in B \wedge x \notin C) \vee (x \in A \wedge x \notin B \wedge x \in C)
+	\end{equation}
+	Ч.Т.Д.
+
+	\end{center}
+\end{itemize}
+
+
+\qs{}{
+Найти ОФФ
+\begin{itemize}
+  \item $y=\log _{3+x}\left(x^{2}-1\right)$
+  \item $y=\lg (\pi-2 \arctan x)$\\
+\end{itemize}
+}
+\sol
+\begin{center}
+\begin{itemize}
+\item $y=\log_{3+x}(x^{2}-1)$
+
+\begin{equation}
+\begin{cases}
+3+x >0 \\
+3+x \neq 1\\
+x^{2}-1 >0
+\end{cases}
+\end{equation}
+Решая систему, получаем:
+$x \in (-3, -2) \cup (-2, -1) \cup (1, \infty)$
+
+
+\item $y=\lg (\pi-2 \arctan x)$
+\begin{equation}
+	\pi-2 \arctan x >0 \text(- выполняется всегда) \Rightarrow x \in \mathbb{R}
+\end{equation}
+
+\clm{}{}{\bf{Ответ:} \\ $x \in (-3, -2) \cup (-2, -1) \cup (1, \infty)\\ x \in \mathbb{R}$
+}
+\end{itemize}
+\end{center}
+
+
+
+\qs{}{
+Найти область значений
+\begin{itemize}
+  \item $y=\sqrt{8-2 x-x^{2}}$
+  \item $y=\sin ^{4} x+\cos ^{4} x$\\
+\end{itemize}
+}
+
+\sol 
+\begin{center}
+\begin{itemize}
+\item $y=\sqrt{8-2 x-x^{2}}$\\
+\begin{equation}
+	-x^2-2x+8 - \text{парабола ветвями вниз, найдем ее max}: x_{max}=\frac{-b}{2a}=-1 \Rightarrow y_{max}=3 \Rightarrow y \in [0, 3]
+\end{equation}
+\item $y=\sin ^{4} x+\cos ^{4} x$\\
+\begin{equation}
+\sin ^{4} x+\cos ^{4} x =(1-\cos^2 x)^2 +\cos^4 x = 1-2\cos^2 x+\cos^4 x 
+\end{equation}
+Пусть $t=\cos^2 x$, тогда
+\begin{equation}
+	y=2t^2-2t+1 \Rightarrow y_{min}=\frac{1}{2}; \quad y_{max}=1
+\end{equation}
+\end{itemize}
+\end{center}
+\clm{}{}{\bf{Ответ:} \\ $y \in [0, 3]\\
+y \in [\frac{1}{2}, 1]$ }
+
+
+\qs{}{
+Доказать, что функции $f$ и $g$ взаимно обратные:
+$$
+f=x^{2}+1, x \leq 0, g=-\sqrt{x-1}, x \geq 1
+$$
+}
+
+
+\sol Рассмотрим обзасть значений $f$:
+
+\begin{equation}
+	f(x) \in [1, \infty) \text{ такая же область значений у x во второй функции}
+\end{equation}
+Теперь рассмотрим область значений $g$:
+
+\begin{equation}
+	g(x) \in (-\infty, 0] \text{ такая же область значений у x в первой функции}
+\end{equation}
+
+К тому же f и g монотонный $\Rightarrow$ f и g взаимно обратные, тк выполняются инъекция и сюръекция.\\
+\begin{center}
+	Ч.Т.Д.
+\end{center}
+
+
+\end{document}
+
