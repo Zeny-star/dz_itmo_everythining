@@ -1,7 +1,6 @@
-import numpy as np
+import pandas as pd
 
-a = np.array([1,2,3,4,5,6])
-print(a.reshape(3,2).transpose())
-print(a.reshape(2,-1))
-print(a.ravel())
 
+def test():
+    df = pd.read_csv("test.csv")
+    print(df)
