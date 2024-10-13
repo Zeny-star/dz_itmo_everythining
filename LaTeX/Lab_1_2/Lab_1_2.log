@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.9)  5 OCT 2024 07:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.9)  13 OCT 2024 18:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -611,7 +611,7 @@ Overfull \hbox (3.6726pt too wide) in paragraph at lines 84--85
 -ко-сти (см. рис.1).
  []
 
-<pik.png, id=53, 226.8475pt x 143.53625pt>
+<pik.png, id=57, 226.8475pt x 143.53625pt>
 File: pik.png Graphic file (type png)
 <use pik.png>
 Package pdftex.def Info: pik.png  used on input line 105.
@@ -621,7 +621,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 106.
 See the caption package documentation for explanation.
 
-<pic2.png, id=55, 1139.25626pt x 598.235pt>
+<pic2.png, id=59, 1139.25626pt x 598.235pt>
 File: pic2.png Graphic file (type png)
 <use pic2.png>
 Package pdftex.def Info: pic2.png  used on input line 124.
@@ -632,20 +632,37 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [2 <./pik.png>] [3 <./pic2.png>]
-<Graph_1.png, id=89, 578.16pt x 433.62pt>
+<1_2.png, id=93, 963.6pt x 642.4pt>
+File: 1_2.png Graphic file (type png)
+<use 1_2.png>
+Package pdftex.def Info: 1_2.png  used on input line 240.
+(pdftex.def)             Requested size: 481.79883pt x 321.19922pt.
+
+Overfull \hbox (136.79883pt too wide) in paragraph at lines 240--240
+ [] 
+ []
+
+[4]
+<Graph_1.png, id=101, 578.16pt x 433.62pt>
 File: Graph_1.png Graphic file (type png)
 <use Graph_1.png>
-Package pdftex.def Info: Graph_1.png  used on input line 245.
+Package pdftex.def Info: Graph_1.png  used on input line 249.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
- [4]
-<Figure_2_m.png, id=97, 462.528pt x 346.896pt>
-File: Figure_2_m.png Graphic file (type png)
-<use Figure_2_m.png>
-Package pdftex.def Info: Figure_2_m.png  used on input line 252.
+ [5 <./1_2.png>]
+<plot.png, id=108, 462.528pt x 346.896pt>
+File: plot.png Graphic file (type png)
+<use plot.png>
+Package pdftex.def Info: plot.png  used on input line 257.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
- [5 <./Graph_1.png> <./Figure_2_m.png>]
-[6{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
-}] (./Lab_1_2.aux)
+ [6 <./Graph_1.png> <./plot.png>]
+<pickpick.png, id=117, 501.875pt x 150.5625pt>
+File: pickpick.png Graphic file (type png)
+<use pickpick.png>
+Package pdftex.def Info: pickpick.png  used on input line 290.
+(pdftex.def)             Requested size: 250.93687pt x 75.28105pt.
+ [7{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.en
+c} <./pickpick.png>]
+(./Lab_1_2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -655,13 +672,13 @@ L3 programming layer <2024-02-20>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `Lab_1_2.out' has not changed.
-(rerunfilecheck)             Checksum: D6A5370C0649EBA6CC2AFF596FAC55A9;1053.
+(rerunfilecheck)             Checksum: 3E72309CDDB57F2F74F1ACFEF8E07297;1184.
  ) 
 Here is how much of TeX's memory you used:
- 13212 strings out of 474116
- 206789 string characters out of 5743683
+ 13237 strings out of 474116
+ 207123 string characters out of 5743683
  1953187 words of memory out of 5000000
- 35386 multiletter control sequences out of 15000+600000
+ 35404 multiletter control sequences out of 15000+600000
  565731 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,10n,79p,1505b,666s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -678,10 +695,10 @@ live/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texli
 ve/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive
 /2024/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2
 024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Lab_1_2.pdf (6 pages, 332581 bytes).
+Output written on Lab_1_2.pdf (7 pages, 3606567 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 140 compressed objects within 2 object streams
- 47 named destinations out of 1000 (max. 500000)
- 77 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 205 PDF objects out of 1000 (max. 8388607)
+ 155 compressed objects within 2 object streams
+ 54 named destinations out of 1000 (max. 500000)
+ 95 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -70,6 +70,7 @@ plt.scatter(sin_alpha[:-4], acceleration[:-4], color='blue', label='Экспер
 sin_alpha_theor = np.linspace(min(sin_alpha), max(sin_alpha), 100)
 a_theor = A + B * sin_alpha_theor
 plt.plot(sin_alpha_theor, a_theor, color='red', label=f'Аппроксимация: a = {A:.2f} + {B:.2f} sin(α)')
+plt.errorbar(sin_alpha[:-4], acceleration[:-4], yerr=delta_a[:-4], fmt='o', color='b', label='Погрешности')
 # Настройка графика
 plt.xlabel('sin(α)')
 plt.ylabel('Ускорение a (м/с²)')

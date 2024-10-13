@@ -49,8 +49,8 @@ print(relative_error_a,'%', 'относительная погрешность')
 print(f"Доверительный интервал для ускорения: [{a-delta_a}, {a+delta_a}]")
 # Оформление графика
 
-plt.xlabel('Z')
-plt.ylabel('Y')
+plt.xlabel('Z [с^2]')
+plt.ylabel('Y [м]')
 plt.title('Зависимость Y от Z с погрешностями')
 plt.legend()
 plt.grid(True)
