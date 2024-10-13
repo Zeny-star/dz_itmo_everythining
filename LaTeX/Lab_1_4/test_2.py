@@ -63,14 +63,14 @@ for i in range(Num):
         args[i], covar[i] = curve_fit(mapping, x[i], y[i])
         ax.plot(k_range, mapping(k_range, *args[i]), colors[i],
                 label=labels[i] + r"$a = $" + str(round(args[i][0], 4)) +
-                r", $b = $" + str(round(args[i][1], 4)) +
-                r", e = " + str(round(sqrt(covar[i][0][0]) / args[i][0] * 100, 2)) + '%')
+                r", $b = $" + str(round(args[i][1], 4)))
     except Exception as e:
         print(f"Error in curve fitting for dataset {i}: {e}")
 
 # Добавление ошибок погрешности
 ax.errorbar(x[0][0], y[0][0], yerr=yerr[0][0], xerr=xerr[0][0], color=colors[0][0], fmt='.', capsize=2)
-
+for i in range(Num):
+    plt.plot(x[i],y[i],'o', color=colors[i])
 # Настройки графика
 ax.set_xlabel(r"$\epsilon, \frac{rad}{c^2}$", fontsize=14)
 ax.set_ylabel(r'$M, \frac{kg \cdot m^2}{c^2}$', fontsize=14)
@@ -150,11 +150,21 @@ sigma_I = np.sqrt((dI_dl0 * sigma_l0) ** 2 + (dI_dl1 * sigma_l1) ** 2 + (dI_db *
 plt.show()
 # Теперь построим линейные зависимости для каждого положения утяжелителей
 epsilon_range = np.linspace(min(epsilon), max(epsilon), 100)
-
+colors=['b', 'orange', 'g', 'r', 'purple', 'brown']
 for i, (I, M_tr) in enumerate(zip(I_values, M_tr_values)):
     M_fitted = M_tr + I * epsilon_range
     plt.plot(epsilon_range, M_fitted, label=f'Группа {i+1}: I={I:.4f}, Mтр={M_tr:.4f}')
-# Оформление графика
+    plt.scatter(epsilon[:6], M_tr_values[:6]+I_values[:6]*np.array(epsilon[:6]), color=colors)
+    plt.scatter(epsilon[6:12], M_tr_values[:6]+I_values[:6]*np.array(epsilon[6:12]), color=colors)
+    plt.scatter(epsilon[12:18], M_tr_values[:6]+I_values[:6]*np.array(epsilon[12:18]), color=colors)
+    plt.scatter(epsilon[18:24], M_tr_values[:6]+I_values[:6]*np.array(epsilon[18:24]), color=colors)
+
+
+
+
+
+print(M_tr_values.shape)#6
+#plt.scatter(epsilon, M, color='red', label='Экспериментальные точки')
 plt.xlabel(r'$\epsilon$ (угловое ускорение), $\frac{1}{c^2}$', fontsize=12)
 plt.ylabel('Момент силы Трения, H', fontsize=12)
 plt.title('Зависимость Mтр(ε) и экспериментальные точки', fontsize=14)

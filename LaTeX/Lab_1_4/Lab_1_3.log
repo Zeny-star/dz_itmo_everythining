@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.9)  5 OCT 2024 08:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.9)  13 OCT 2024 23:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -752,22 +752,22 @@ File: I(R^2).png Graphic file (type png)
 <use I(R^2).png>
 Package pdftex.def Info: I(R^2).png  used on input line 179.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
-<M(eps).png, id=90, 718.3638pt x 452.4102pt>
-File: M(eps).png Graphic file (type png)
-<use M(eps).png>
-Package pdftex.def Info: M(eps).png  used on input line 186.
-(pdftex.def)             Requested size: 359.18102pt x 226.20454pt.
-<Figure_1.png, id=91, 462.528pt x 346.896pt>
-File: Figure_1.png Graphic file (type png)
-<use Figure_1.png>
-Package pdftex.def Info: Figure_1.png  used on input line 192.
+<lgnt_g.png, id=90, 462.528pt x 346.896pt>
+File: lgnt_g.png Graphic file (type png)
+<use lgnt_g.png>
+Package pdftex.def Info: lgnt_g.png  used on input line 186.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
- [4 <./I(R^2).png> <./M(eps).png>]
+<nig.png, id=91, 462.528pt x 346.896pt>
+File: nig.png Graphic file (type png)
+<use nig.png>
+Package pdftex.def Info: nig.png  used on input line 192.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+ [4 <./I(R^2).png> <./lgnt_g.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 199--200
 
  []
 
-[5 <./Figure_1.png>] (./Lab_1_3.aux)
+[5 <./nig.png>] (./Lab_1_3.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -777,7 +777,7 @@ Package rerunfilecheck Info: File `Lab_1_3.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  15024 strings out of 474116
- 235978 string characters out of 5743683
+ 235943 string characters out of 5743683
  1939187 words of memory out of 5000000
  37157 multiletter control sequences out of 15000+600000
  565396 words of font info for 51 fonts, out of 8000000 for 9000
@@ -792,7 +792,7 @@ ocal/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/loc
 al/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local
 /texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/t
 exlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Lab_1_3.pdf (5 pages, 1187858 bytes).
+Output written on Lab_1_3.pdf (5 pages, 1170404 bytes).
 PDF statistics:
  162 PDF objects out of 1000 (max. 8388607)
  123 compressed objects within 2 object streams
