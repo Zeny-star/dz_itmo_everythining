@@ -16,7 +16,7 @@ def calc_conf_intervals(delta_p, delta_W, N, t_alpha_N):
 
     # Доверительные интервалы
     conf_interval_delta_p = (delta_p_mean - Delta_delta_p, delta_p_mean + Delta_delta_p)
-    conf_interval_delta_W = (delta_W_mean - Delta_delta_W, delta_W_mean + Delta_delta_W)
+    conf_interval_delta_W= (delta_W_mean - Delta_delta_W, delta_W_mean + Delta_delta_W)
 
     return (delta_p_mean, Delta_delta_p, conf_interval_delta_p), (delta_W_mean, Delta_delta_W, conf_interval_delta_W)
 

@@ -5,12 +5,17 @@ values = [4.91, 4.81, 4.90, 4.90, 4.84, 5.03, 4.91, 4.90, 5.06, 5.00, 4.93, 4.65
           5.00, 5.00, 4.93, 4.97, 4.91, 5.03, 4.87, 4.75, 5.00, 4.85]
 x = np.linspace(min(values), max(values), 100)
 y = 1 / (np.std(values)* np.sqrt(2 * np.pi)) * np.exp(-(x - np.mean(values))**2 / (2 * np.std(values)**2))
-plt.plot(x, y, color='orange')
+confidence_interval = 1.96 * np.std(values) / np.sqrt(len(values))
+plt.plot(x, y, color='orange', label='Нормальное распределение')
+plt.hist(values, density=True, color='b', label='Гистограмма')
+plt.xlabel('Время (секунды)')
+plt.ylabel('Плотность')
+plt.title('Гистограмма и нормальное распределение')
+plt.legend(loc='best')
 
-plt.hist(values, density=True, color='b')
 plt.show()
-print('dispersion',np.std(values))
-print('mean',np.mean(values))
-
+print('дисперсия',np.std(values))
+print('среднее',np.mean(values))
+print('разброс', confidence_interval)
 
 
