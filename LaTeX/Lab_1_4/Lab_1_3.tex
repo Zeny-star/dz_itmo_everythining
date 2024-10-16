@@ -207,9 +207,61 @@ I = I_0 + 4m_{\text{ут}}R^2
     \item На установке элемент 9 соприкасается с рейкой, из-за этого возникает дополнительная сила трения.
 \end{enumerate}
 
-/section{\textbf{Доп вопросы}}
+\section{\textbf{Доп вопросы}}
 \begin{enumerate}
-Условие не проскальзывания - $F_{\text{тр}}$ - сила трения покоя, тогда поступательная скорость выражается как $v=wR$. Рассмотрим крит. случай когда просказывание только началось, тогда из 2ЗН 
+	\item Условие не проскальзывания - $F_{\text{тр}}$ - сила трения покоя, тогда поступательное ускорение выражается как $a=\epsilon R$, где $\epsilon$ - угловое ускорение. Рассмотрим крит. случай когда просказывание только началось, тогда из Th о движении центра масс: 
+		\begin{equation*}
+			\begin{cases}
+			ma=mg\sin\alpha-F_{\text{тр}}\\
+			N-mg\cos\alpha=0\\
+			F_{\text{тр}}=N\mu - \text{в крит. случае сила трения покоя равна силе трения движения}
+			\end{cases}
+		\end{equation*}
+		Где $m$ - масса шара\\
+		Из уравнения моментов отн. центра шара:
+		\begin{equation*}
+			I\epsilon=F_{\text{тр}}R
+		\end{equation*}
+		Для шара момент инерции равен $I=\dfrac{2}{5}m R^2$, тогда:
+		\begin{equation*}
+			\dfrac{2}{5}m R^2\cdot \dfrac{a}{R}=F_{\text{тр}}R \Rightarrow
+			a = \dfrac{5F_{\text{тр}}}{2m}
+		\end{equation*}
+		Объеденяя полученные выше уравнения получим:
+		\begin{equation*}
+			\alpha=\arctg{\dfrac{7}{2}\mu}
+		\end{equation*}
+		Тк мы рассматривали крит. случай, то конечное выражение для $\alpha$ выглядит так:
+		\begin{equation*}
+			\alpha \leq \arctg{\dfrac{7}{2}\mu}
+		\end{equation*}
+
+	\item Понятно что, max значение кин. энергии достигается при max скорости, а max скорость в свою очередь достигается при max массе падающих грузов и min $S$, где $S$ - расстоятие от муфт до центра мельницы
+	Тогда кин. энергию крестовины можно посчитать по из ЗСЭ:
+	\begin{equation*}
+		W_{\text{пот каретки}}= W_{\text{кин каретки}} + W_{\text{кин крестовины}}+W_{\text{кин муфты}}
+	\end{equation*}
+	Вся конструкция вращается с одним угловым ускорением $\epsilon$, тк в ином случае нитка либо провисала бы, либо рвалась бы, найдем его:
+	Ускорение $a$ и $\epsilon$ связаны уравнением:
+	\begin{equation*}
+		a=\epsilon R
+	\end{equation*}
+	$a$ находится через формулу:
+	\begin{equation*}
+		a=\dfrac{2h}{t^2} \Rightarrow \epsilon = \dfrac{2h}{Rt^2}
+	\end{equation*}
+	Тогда скорость каждой муфты --- $v=\epsilon Rt = \dfrac{2h}{t}$
+	Тогда выражение для энергий принимает вид:
+	\begin{equation*}
+		Mgh=\dfrac{M \left(\dfrac{2h}{t}\right)^2}{2}+W_{\text{кин крестовины}}+\dfrac{12mh^2}{t^2}
+	\end{equation*}
+	\begin{equation*}
+		W_{\text{кин крестовины}} =\dfrac{12mh^2}{t^2} + \dfrac{2Mh^2}{t^2}-Mgh
+	\end{equation*}
+\item Отношение энергий - 
+	\begin{equation*}
+		\dfrac{\dfrac{12mh^2}{t^2} + \dfrac{2Mh^2}{t^2}-Mgh}{\dfrac{2Mh^2}{t^2}}
+	\end{equation*}
 \end{enumerate}
 
 \end{document}

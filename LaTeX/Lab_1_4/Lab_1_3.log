@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.9)  13 OCT 2024 23:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.9)  16 OCT 2024 16:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -725,7 +725,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<pick.png, id=32, 396.48125pt x 247.92625pt>
+<pick.png, id=36, 396.48125pt x 247.92625pt>
 File: pick.png Graphic file (type png)
 <use pick.png>
 Package pdftex.def Info: pick.png  used on input line 68.
@@ -735,29 +735,29 @@ Package pdftex.def Info: pick.png  used on input line 68.
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc} <./pick.p
 ng>]
-<pick2.png, id=54, 509.905pt x 398.48875pt>
+<pick2.png, id=58, 509.905pt x 398.48875pt>
 File: pick2.png Graphic file (type png)
 <use pick2.png>
 Package pdftex.def Info: pick2.png  used on input line 131.
 (pdftex.def)             Requested size: 254.95187pt x 199.24388pt.
  [2 <./pick2.png>]
-<данные.png, id=73, 635.37375pt x 708.6475pt>
+<данные.png, id=77, 635.37375pt x 708.6475pt>
 File: данные.png Graphic file (type png)
 <use данные.png>
 Package pdftex.def Info: данные.png  used on input line 155.
 (pdftex.def)             Requested size: 317.6861pt x 354.32289pt.
  [3 <./данные.png>]
-<I(R^2).png, id=89, 462.528pt x 346.896pt>
+<I(R^2).png, id=93, 462.528pt x 346.896pt>
 File: I(R^2).png Graphic file (type png)
 <use I(R^2).png>
 Package pdftex.def Info: I(R^2).png  used on input line 179.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
-<lgnt_g.png, id=90, 462.528pt x 346.896pt>
+<lgnt_g.png, id=94, 462.528pt x 346.896pt>
 File: lgnt_g.png Graphic file (type png)
 <use lgnt_g.png>
 Package pdftex.def Info: lgnt_g.png  used on input line 186.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
-<nig.png, id=91, 462.528pt x 346.896pt>
+<nig.png, id=95, 462.528pt x 346.896pt>
 File: nig.png Graphic file (type png)
 <use nig.png>
 Package pdftex.def Info: nig.png  used on input line 192.
@@ -767,35 +767,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 199--200
 
  []
 
-[5 <./nig.png>] (./Lab_1_3.aux)
+[5 <./nig.png>] [6] (./Lab_1_3.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `Lab_1_3.out' has not changed.
-(rerunfilecheck)             Checksum: 1895F91F372475A6A6300F737ADCBAC7;1013.
+(rerunfilecheck)             Checksum: 11F85B3B2DA3A0947868902C8F9932AA;1144.
  ) 
 Here is how much of TeX's memory you used:
- 15024 strings out of 474116
- 235943 string characters out of 5743683
+ 15035 strings out of 474116
+ 236118 string characters out of 5743683
  1939187 words of memory out of 5000000
- 37157 multiletter control sequences out of 15000+600000
+ 37163 multiletter control sequences out of 15000+600000
  565396 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,79p,759b,547s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></us
-r/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
-/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/l
-ocal/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/loc
-al/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local
-/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/t
-exlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Lab_1_3.pdf (5 pages, 1170404 bytes).
+ 75i,11n,79p,759b,557s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr
+/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
+local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/lo
+cal/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/loca
+l/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/
+texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/te
+xlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on Lab_1_3.pdf (6 pages, 1191311 bytes).
 PDF statistics:
- 162 PDF objects out of 1000 (max. 8388607)
- 123 compressed objects within 2 object streams
- 47 named destinations out of 1000 (max. 500000)
- 87 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 179 PDF objects out of 1000 (max. 8388607)
+ 137 compressed objects within 2 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 95 words of extra memory for PDF output out of 10000 (max. 10000000)
 

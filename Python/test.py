@@ -1,6 +1,5 @@
-import pandas as pd
+def f2(x):
+    print(x)
+    return f2(x + 1)
 
-
-def test():
-    df = pd.read_csv("test.csv")
-    print(df)
+f2(1)
