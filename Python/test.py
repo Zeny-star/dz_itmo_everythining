@@ -1,5 +1,4 @@
-def f2(x):
-    print(x)
-    return f2(x + 1)
+def guess(a):
+    a=a+1
+    return guess(a)
 
-f2(1)

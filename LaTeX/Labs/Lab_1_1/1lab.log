@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.9)  13 OCT 2024 18:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.9)  17 OCT 2024 13:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -588,12 +588,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--61
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc}{/usr/loca
 l/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<1.png, id=26, 548.0475pt x 599.23875pt>
+<1.png, id=51, 548.0475pt x 599.23875pt>
 File: 1.png Graphic file (type png)
 <use 1.png>
 Package pdftex.def Info: 1.png  used on input line 91.
 (pdftex.def)             Requested size: 164.41551pt x 179.77301pt.
-<Figure_1.png, id=27, 462.528pt x 346.896pt>
+<Figure_1.png, id=52, 462.528pt x 346.896pt>
 File: Figure_1.png Graphic file (type png)
 <use Figure_1.png>
 Package pdftex.def Info: Figure_1.png  used on input line 95.
@@ -610,21 +610,14 @@ Overfull \hbox (1.16437pt too wide) in paragraph at lines 117--118
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-Package rerunfilecheck Warning: File `1lab.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `1lab.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  2A61A8157663E20EFE56694852A356F3;1013.
+Package rerunfilecheck Info: File `1lab.out' has not changed.
+(rerunfilecheck)             Checksum: 2A61A8157663E20EFE56694852A356F3;1013.
  ) 
 Here is how much of TeX's memory you used:
- 11849 strings out of 474116
- 180586 string characters out of 5743683
+ 11857 strings out of 474116
+ 180665 string characters out of 5743683
  1944187 words of memory out of 5000000
- 34062 multiletter control sequences out of 15000+600000
+ 34070 multiletter control sequences out of 15000+600000
  565731 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,13n,79p,613b,480s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -639,10 +632,10 @@ l/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/
 texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/te
 xlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texl
 ive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on 1lab.pdf (4 pages, 239822 bytes).
+Output written on 1lab.pdf (4 pages, 240304 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 68 compressed objects within 1 object stream
+ 123 PDF objects out of 1000 (max. 8388607)
+ 90 compressed objects within 1 object stream
  14 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 67 words of extra memory for PDF output out of 10000 (max. 10000000)
 
