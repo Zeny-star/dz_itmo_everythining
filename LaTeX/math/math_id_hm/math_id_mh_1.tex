@@ -1,0 +1,242 @@
+\documentclass{report}
+
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{diffcoeff,amssymb}
+\usepackage{mathtools}
+\usepackage[normalem]{ulem}
+
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+
+
+
+\title{\Huge{Матан инд}\\ Вариант №19(22)}
+
+\author{\huge{Евгений Турчанин}}
+\date{}
+\begin{document}
+\maketitle
+
+\qs{}{
+Доказать что:
+$\dfrac{1^4}{1\cdot3}+\dfrac{2^4}{3\cdot5}+\mathellipsis+\dfrac{n^4}{(2n-1)\cdot(2n+1)}=\dfrac{n(n+1)(n^2+n+1)}{6(2n+1)}$
+}
+\sol
+Докажем через индукцию:\\
+\begin{enumerate}
+	\item Покажем что для $n=1$ верно: \\ 
+		\begin{equation*}
+		\dfrac{1(1+1)(1^2+1+1)}{6(2+1)}=\dfrac{1}{3}
+		\end{equation*}
+		\begin{equation*}
+		\dfrac{1^4}{1\cdot3}=\dfrac{1}{3}
+		\end{equation*}
+	\item Пусть верно для $n$ \\
+	\item Тогда докажем, что верно для $n+1$:
+		\begin{equation*}
+			\underbrace{\dfrac{1^4}{1\cdot3}+\dfrac{2^4}{3\cdot5}+\mathellipsis+\dfrac{n^4}{(2n-1)\cdot(2n+1)}}_{\dfrac{n(n+1)(n^2+n+1)}{6(2n+1)}}+\dfrac{(n+1)^4}{(2n+1)\cdot(2n+3)} \Rightarrow
+		\end{equation*}
+		Нужно доказать, что:
+		\begin{equation*}
+		\dfrac{n(n+1)(n^2+n+1)}{6(2n+1)}+\dfrac{(n+1)^4}{(2n+1)\cdot(2n+3)} = 
+		\dfrac{(n+1)(n+2)(n^2+3n+3)}{6(2n+3)}
+		\end{equation*}
+		\sout{Трудно не заметить, что так оно и есть}
+		Давайте покажем, что это так:\\
+		Сократим все на $n+1$ и приведем к общему знаменателю:
+		\begin{equation*}
+		\dfrac{n(2n+3)(n^2+n+1)}{6(2n+1)(2n+3)}+\dfrac{6(n+1)^3}{6(2n+1)\cdot(2n+3)} = 
+		\dfrac{(2n+1)(n+2)(n^2+3n+3)}{6(2n+1)(2n+3)}
+		\end{equation*}
+		Сократим на знаменатели и раскроем скобки:
+		\begin{equation*}
+		2x^4+11x^3+23x^2+21x+6=2x^3+11x^2+23x+21+6 \Rightarrow
+		\end{equation*}
+		\begin{equation*}
+		0=0
+		\end{equation*}
+		\begin{center}
+			Ч.Т.Д.
+		\end{center}
+
+\end{enumerate}
+
+
+
+\qs{}{
+Доказать что:
+\[ \sum_{k=1}^{k}\dfrac{1}{k^2} \leqslant 2 -\dfrac{1}{n}\]
+}
+\sol
+Докажем опять \sout{двадцатьпять} через индукцию:\\
+\begin{enumerate}
+	\item Покажем что для $n=1$ верно: \\ 
+		\begin{equation*}
+			\dfrac{1}{1^2}=1
+		\end{equation*}
+		\begin{equation*}
+			2-\dfrac{1}{1}=1
+		\end{equation*}
+	\item Пусть верно для $n$ \\
+	\item Тогда докажем, что верно для $n+1$:\\
+		Те нужно доказать что верно:
+		\begin{equation*}
+			\underbrace{\dfrac{1}{1^2}+\dfrac{1}{2^2}+\mathellipsis+\dfrac{1}{n^2}}_{\leqslant 2-\frac{1}{n}}+\dfrac{1}{(n+1)^2} \leqslant 2-\dfrac{1}{n+1}
+		\end{equation*}
+		Приведем к общему знаменателю:
+		\begin{equation*}
+			\dfrac{(2n-1)(n+1)^2+n}{(n+1)^2n} \leqslant \dfrac{(2n+1)(n+1)n}{(n+1)^2n}
+		\end{equation*}
+		Сократим на знаменатель:
+		\begin{equation*}
+			(2n-1)(n+1)^2+n\leqslant (2n+1)(n+1)n
+		\end{equation*}
+		Раскроем скобки:
+		\begin{equation*}
+			2n^3+4n^2+2n-n^2-2n-1+n\leqslant 2n^3+2n^2+n^2+n \Rightarrow
+		\end{equation*}
+		\begin{equation*}
+			-1\leqslant 0
+		\end{equation*}
+		\begin{center}
+			Ч.Т.Д.
+		\end{center}
+
+\end{enumerate}
+
+
+\begin{center}
+	\textbf{\Large{Момент когда меня сместили с 19 на 22 место}}
+\end{center}
+\hrulefill
+
+\qs{}{
+Доказать:
+$(2n-1)!<n^{2n-1}, \; n \geq 2$
+
+}
+\sol
+Докажем по мат. индукции:
+\begin{enumerate}
+	\item Покажем что для $n=2$ верно: \\
+		\begin{equation*}
+			(4-1)!<2^{4-1} \Rightarrow 6<8
+		\end{equation*}
+
+	\item Пусть верно для $n$ \\
+	\item Докажем, что верно для $n+1$ \\
+		\begin{equation*}
+			(2n+1)!<(n+1)^{2n+1} \Rightarrow 2n(2n+1)n^{2n-1}<(n+1)^{2n+1} \Rightarrow 
+		\end{equation*}
+		\begin{equation*}
+			4n^{2n+1}+2n^{2n}<n^{2n+1}+(n+1)^{2n}\cdot(2n+1)+(n+1)^{2n-1}\cdot n(2n+1)
+		\end{equation*}
+		Преобразуем правую часть:
+		\begin{equation*}
+			n^{2n+1}+(n+1)^{2n}\cdot(2n+1)+(n+1)^{2n-1}\cdot n(2n+1)>5n^{2n+1}+2n^{2n}
+		\end{equation*}
+		Тк
+		\begin{equation*}
+			4n^{2n+1}+2n^{2n}<5n^{2n+1}+2n^{2n}
+		\end{equation*}
+		\begin{center}
+		\textbf{Ч.Т.Д.}
+		\end{center}
+\end{enumerate}
+
+\qs{}{
+$C_n^0-2C_n^1+3C_n^2+\ldots +(-1)^n(n+1)C_n^n$ = ?
+}
+\sol
+\sout{Легко}Трудно не заметить что:\\
+
+\begin{equation*}
+C_n^0-2C_n^1+3C_n^2+\ldots+(-1)^n(n+1)C_n^n=(n+1)C_n^0-nC_n^1+(n-1)C_n^2+\ldots+(-1)^nC_n^n
+\end{equation*}
+\\
+Тогда начальную сумму можно представить ввиде:
+\begin{equation*}
+\dfrac{n+1}{2}(C_n^0-C_n^1+(-1)^nC_n^2+\ldots+C_n^n)
+\end{equation*}
+
+\begin{equation*}
+C_n^0-C_n^1+C_n^2+\ldots+(-1)^nC_n^n=(a+b)^n
+\end{equation*}
+\\
+Такое равенство будет выполнятся при $a=1$ и $b=-1$(причем, очевидно что четность/нечетность $n$ не влияет), тогда искомая сумма будет равна:
+\begin{equation*}
+\dfrac{n+1}{2}0^n=0
+\end{equation*}
+
+\clm{}{}{\textbf{Ответ\sout{ственность}:}
+$C_n^0-2C_n^1+3C_n^2+\ldots +(-1)^n(n+1)C_n^n=0$
+}
+\hfill
+
+\qs{}{
+Доказать:
+\begin{enumerate}
+	\item $\lim\limits_{n\to\infty} \dfrac{3n-3}{6n-4}=\dfrac{1}{2}$
+	\item $\lim\limits_{n\to\infty} (3-\ln{(n+1)})=-\infty$
+	\item $\lim\limits_{n\to\infty} ((-1)^n\cdot n^2-n)=\infty$
+\end{enumerate}
+}
+\sol
+
+\begin{enumerate}
+	\itemОпределение предела:
+		\begin{equation*}
+			\forall \epsilon > 0 \: \exists n_0 \in \mathbb{N}: \forall n \geq n_0: |A-x_n|< \epsilon
+		\end{equation*}
+		Тогда чтобы доказать что $1/2$ является пределом, нужно показать что:
+		\begin{equation*}
+			\left|\dfrac{1}{2}-\dfrac{3n-3}{6n-4}\right|<\epsilon
+		\end{equation*}
+		Те что $\left|\dfrac{1}{2}-\dfrac{3n-3}{6n-4}\right|$ может быть сколь угодно малым, покажем это:
+		\begin{equation*}
+			\left|\dfrac{1}{2}-\dfrac{3n-3}{6n-4}\right|=\dfrac{1}{6n-4} - \text{эта дробь может быть сколь угодно малой из принципа Архимеда}
+		\end{equation*}
+		\begin{center}
+			\textbf{Ч.Т.Д.}
+		\end{center}
+	\item Если пределом последовательности является $-\infty$, то не существует такого числа, которое \textit{подпирает} последовательность снизу и последовательность монотонно убывает. Запишем это в формальном виде:
+		\begin{equation*}
+			\forall M \enspace \exists x_{n_0} : \forall n \geq n_0: x_n< M
+		\end{equation*}
+		Докажем что для любого $M$ можно найти такой $x_{n_0}$, начиная с которого, все члены мешьше $M$:
+		\begin{equation*}
+			3-\ln(n+1)<M \Rightarrow n>e^{3-M}-1  \text{--- ну вот он, можно округлить до целых и прибавить 1}
+		\end{equation*}
+		Теперь покажем монотонность последовательности:
+		\begin{equation*}
+			x_{n+1}-x_n=3-\ln{(n+2)}-3+\ln{(n+1)}=\ln{\dfrac{n+1}{n+2}}<0 \Rightarrow \text{последовательность монотонно убывает}
+		\end{equation*}
+		Получаем что, последовательность монотонно убывает и не ограничена снизу
+		\begin{center}
+			\textbf{Ч.Т.Д.}
+		\end{center}
+	\item Если предел последовательност это $\infty$, то множество ее частичных пределов --- $\lbrace-\infty, \infty\rbrace$\\
+	Тогда докажем, что $\pm \infty$ являются частичными пределами, и что других частичных пределов нету:
+	\begin{enumerate}
+		\item $n$ - четное $\Rightarrow$
+			$\lim\limits_{n\to\infty} (n^2-n)=\lim\limits_{n\to\infty} n^2(1-1/n) \to \infty$
+
+		\item $n$ - нечетное $\Rightarrow$
+			$\lim\limits_{n\to\infty} (-n^2-n)=\lim\limits_{n\to\infty} -n^2(1+1/n) \to -\infty$
+	\end{enumerate}
+	Других частичных пределов нету, тк в подпоследовательность входит либо бесконечное число четных и нечетных, тогда предел --- $\infty$, либо конечное число четных/нечетных и бесконечное число нечетных/четных, тогда с какого-то номера в подпоследовательности не будет четных/нечетных чисел, тогда частичне пределы --- $\mp \infty$
+	\begin{center}
+		\textbf{Ч.Т.Д.}
+	\end{center}
+\end{enumerate}
+
+\end{document}
+
+
