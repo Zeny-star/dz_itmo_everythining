@@ -43,18 +43,48 @@ $\displaystyle \int \dfrac{1}{e^x-1} \dl x$
 \qs{}{
 $\displaystyle \int \dfrac{1}{\sin x -1} \dl x$
 }
-\begin{align*}
-	ksad;lfjsadl;k fjl;
-\end{align*}
+\sol
+\begin{center}
+\[
+	\displaystyle \int \dfrac{1}{\cos (\frac{\pi}{2}+x) -1} \dl {\left(\frac{\pi}{2}+x\right)}=
+	\displaystyle 2 \int \dfrac{1}{2\cos^2 {(\frac{\pi}{4}+\frac{x}{2})}-2} \dl {\left(\frac{\pi}{4}+\frac{x}{2}\right)}=
+	\displaystyle  -\int \dfrac{1}{\sin^2 {(\frac{\pi}{4}+\frac{x}{2})}} \dl {\left(\frac{\pi}{4}+\frac{x}{2}\right)}=\ctg(\frac{\pi}{4}+\frac{x}{2})
+\]
+\end{center}
 
 
 \qs{}{
 $\displaystyle \int \dfrac{1}{x^3+x} \dl x$
 }
+\sol
+\begin{center}
+\[
+\displaystyle \int \dfrac{1}{x^3+x} \dl x=\displaystyle \int \dfrac{1}{x(x^2+1)} \dl x=
+\displaystyle \int \dfrac{1}{x} \dl x-\int \dfrac{x}{x^2+1} \dl x=\ln x -\frac{1}{2}\int \dfrac{1}{x^2+1}\dl {x^2}=
+\ln x -\frac{1}{2}\ln{(x^2+1)}
+\]
+\end{center}
 
 
 \qs{}{
 $\displaystyle \int \dfrac{x^3}{x^3+x} \dl x$
+}
+\sol
+\[
+\displaystyle \int \dfrac{x^3}{x^3+x} \dl x=\displaystyle \int \dfrac{x^2}{x^2+1} \dl x=
+\displaystyle \int 1-\dfrac{1}{x^2+1} \dl x=x-\arctg x
+\]
+
+
+\clm{}{}{\textbf{Ответ}
+	\begin{enumerate}
+		\item $\dfrac{\ln{\sin (x+1)}}{2}-\dfrac{\ln{\sin (x-1)}}{2}$
+		\item $\ln{(e^x-1)}-\ln{(e^x)}$
+		\item $\ctg(\frac{\pi}{4}+\frac{x}{2})$
+		\item $\ln x -\frac{1}{2}\ln{(x^2+1)}$
+		\item $x-\arctg x$
+	\end{enumerate}
+
 }
 \end{document}
 
