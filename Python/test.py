@@ -1,1 +1,6 @@
+import json
+import requests
 
+cookies = {"session": 'spravka=dD0xNzMwMjkzMDc4O2k9NzcuMjM0LjIxNi4zNjtEPTRGOUVDRjQwNTM3RjgzMEJCNEQyNTg0MDMyODdBOTBBMTVFNTU1QUE4QUUxQ0U1MkZFODA2QUMwMzcxNUMyNDZGN0YzMUIzOTQ0RTQ2MjAxNDlGNjdCNTE5OUZBQjI1QzM4MjA2QjkwRkU1RkQ3MjkyMTNBNUJFM0YyNTg3QzZEMjA2NEE0MzQxNDI4QTJBMENDMjAyMDJFNzU0M0Y2NUUyMEI2MEI1RTUzNUQ4NTt1PTE3MzAyOTMwNzg1MTI2NDE3MDg7aD03ODlmYzMxODE4MzZkNzkyOTVlNmJhNjkxNmFlMzc1MQ==; _yasc=x6/wwyjnBW5fAN/cmtZWMIwotBQa+W+qkP1VDVaTjvu/3qvxy9q/9PFWTPiK+oqN8y1sUKwMzQ==; i=rErkvXs6x3TGRQpEbOrEMhDpG8i/uPK+LXN0masJCB3tY9tUG4EM0ZvTMEwvls9h…1d49bc46a4d7e8a2902e5ff3612344206a02ed8b61d6d9e3ac5111d0290d6b18bbd929657f02bed0e65afea18546a6683b8900892ee5fc2d8f8434bd2cb6ee129854f2850db2bed4b372c361d61f52032cba1bbc856c42b5fca4dc9; desktop_session_key.sig=d4J7DdQJRZb7vPSeeNFJju3RLCs; _ym_isad=2; crookie=53pYExcw33SldTMxJt+Kb/DvrMqDDt4wobpG2yRqaNkgj7Zn8bBz14fjeXIZu4QXDrXzAfdSQixQ2wH7YqJAx/Vq/2M=; cmtchd=MTczMDI5MzA4MjUwOQ==; location=1; coockoos=1; kdetect=1; user-geo-region-id=2; user-geo-country-id=2; mda_exp_enabled=1; yandex_plus_metrika_cookie=true'}
+text =requests.get('https://www.kinopoisk.ru/lists/movies/movies-in-cinema/').text
+print(text)

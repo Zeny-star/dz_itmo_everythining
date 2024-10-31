@@ -237,6 +237,123 @@ $C_n^0-2C_n^1+3C_n^2+\ldots +(-1)^n(n+1)C_n^n=0$
 	\end{center}
 \end{enumerate}
 
+\qs{}{
+$
+\begin{gathered}
+	1)\lim_{n\to\infty}\frac{5n\sqrt[\leftroot{0}\uproot{2}4]{n^3-2n}+n\sqrt{n^2+2n+8}}{\sqrt[\leftroot{0}\uproot{2}3]{n^6-5n+4}-3n^2-5n}; 2) \lim_{n\to\infty}\frac{3^{2n-1}+2^{n+5}+4n^5}{n\sqrt{3n+5}-9^{n+3}}; \\
+3) \lim_{n\to\infty}\left(\sqrt{4n^4+3n^2+5}-\sqrt{4n^4-6n^2-7}\right); 4) \lim_{n\to\infty}\sqrt[n]{3+\frac{4}{2n-7}}; \\
+5) \lim_{n\to\infty}\left(\frac{7n+15}{9n+8}\right)^{3n}; 6) \lim_{n\to\infty}\left(\frac{6n-5}{6n+7}\right)^{3n}; 7) \lim_{n\to\infty}\frac{n^{2}-(n+1)!}{n!\cdot(n+4)+5^{n}}; \\
+8) \lim_{n\to\infty}\sqrt[n]{3n^{2}+\frac{4}{2n-7}}; 9) \lim_{n\to\infty}\frac{\sqrt[\leftroot{0}\uproot{2}n]{2}-1}{\sqrt[\leftroot{0}\uproot{2}n]{8}-1}; 10) \lim_{n\to\infty}\frac{3+6+9+...+3n}{n^{2}+4}. 
+\end{gathered}
+$
+}
+\begin{enumerate}
+	\item $
+		\lim\limits_{n\to\infty}\dfrac{5n\sqrt[\leftroot{0}\uproot{2}4]{n^3-2n}+n\sqrt{n^2+2n+8}}{\sqrt[\leftroot{0}\uproot{2}3]{n^6-5n+4}-3n^2-5n}=\lim\limits_{n\to\infty}\dfrac{5\sqrt[\leftroot{0}\uproot{2}4]{n^3-2n}+n\sqrt{1+2/n+8/n^2}}{n\sqrt[\leftroot{0}\uproot{2}3]{1-5/n^5+4/n^6}-n(3+5/n)}=\\
+		\\
+		\lim\limits_{n\to\infty}\dfrac{n\sqrt{1+2/n+8/n^2}\left(\dfrac{5\sqrt[\leftroot{0}\uproot{2}4]{n^3-2n}}{n\sqrt{1+2/n+8/n^2}}+1\right)}{n\sqrt[\leftroot{0}\uproot{2}3]{1-5/n^5+4/n^6}-n(3+5/n)}=
+		\lim\limits_{n\to\infty}\dfrac{\sqrt{1+2/n+8/n^2}\left(\dfrac{5\sqrt[\leftroot{0}\uproot{2}4]{n^3-2n}}{n\sqrt{1+2/n+8/n^2}}+1\right)}{\sqrt[\leftroot{0}\uproot{2}3]{1-5/n^5+4/n^6}-(3+5/n)}=\\
+		\lim\limits_{n\to\infty}\dfrac{\sqrt{1+2/n+8/n^2}\left(\dfrac{5\sqrt[\leftroot{0}\uproot{2}4]{n^3-2n}}{n\sqrt{1+2/n+8/n^2}}+1\right)}{(3+5/n)\left(\dfrac{\sqrt[\leftroot{0}\uproot{2}3]{1-5/n^5+4/n^6}}{3+5/n}-1\right)}=\dfrac{1\cdot1}{3\cdot\left(\dfrac{1}{3}-1\right)}=-\dfrac{1}{2}
+	$
+	\item $
+		\lim\limits_{n\to\infty}\dfrac{3^{2n-1}+2^{n+5}+4n^5}{n\sqrt{3n+5}-9^{n+3}}=\lim\limits_{n\to\infty}\dfrac{9^{n}/3+2^{n}\cdot32+4n^5}{n\sqrt{3n+5}-9^{n}\cdot729}=
+		\lim\limits_{n\to\infty}\dfrac{9^{n}/3\left(1+\dfrac{2^{n}\cdot32}{9^n/3}+\dfrac{4n^5}{9^n/3}\right)}{9^{n}\cdot729\left(\dfrac{n\sqrt{3n+5}}{9^n\cdot729}-1\right)}=\dfrac{1/3\cdot1}{729\cdot-1}=-\dfrac{1}{2187}
+	$
+\item $
+	\lim\limits_{n\to\infty}\sqrt{4n^4+3n^2+5}-\sqrt{4n^4-6n^2-7}=\lim\limits_{n\to\infty}\dfrac{9n^2+12}{\sqrt{4n^4+3n^2+5}+\sqrt{4n^4-6n^2-7}}=\\
+	\lim\limits_{n\to\infty}\dfrac{9n^2+12}{2n^2\sqrt{1+3/4n^2+5/4n^4}\left(1+\dfrac{\sqrt{4n^4-6n^2-7}}{\sqrt{4n^4+3n^2+5}}\right)}=\lim\limits_{n\to\infty}\dfrac{9n^2+12}{2n^2\sqrt{1+3/4n^2+5/4n^4}\left(1+\sqrt{1+\dfrac{-9n^2-9}{4n^4+3n^2+5}}\right)}=\dfrac{9}{2\cdot(1+1)}=\dfrac{9}{4}
+$
+\item $
+	\lim\limits_{n\to\infty}\sqrt[n]{3+\dfrac{4}{2n-7}}=1 \quad \text{тк корень из чего-то положительного(что растет медленее корня) $\to$ 1}
+$
+\item $
+\lim\limits_{n\to\infty}\left(\dfrac{7n+15}{9n+8}\right)^{3n}=\lim\limits_{n\to\infty}\left(\dfrac{7(1+15/n)}{9(1+8/n)}\right)^{3n}=0
+$
+\item $
+	\lim\limits_{n\to\infty}\left(\dfrac{6n-5}{6n+7}\right)^{3n}=\lim\limits_{n\to\infty}\left(1+\dfrac{-12}{6n+7}\right)^{3n}=\lim\limits_{n\to\infty}e^{\frac{-12}{6n+7}\cdot 3n}=e^{-6}
+$
+\item $
+	\lim\limits_{n\to\infty}\dfrac{n^{2}-(n+1)!}{n!\cdot(n+4)+5^{n}}=\lim\limits_{n\to\infty}\dfrac{(n+1)!\left(\dfrac{n^2}{(n+1)!}-1\right)}{n!(n+4)\left(1+\dfrac{5^n}{n!(n+4)}\right)}=
+\lim\limits_{n\to\infty}\dfrac{-(n+1)}{n+4}=-1
+$
+\item $
+\lim\limits_{n\to\infty}\sqrt[n]{3n^{2}+\dfrac{4}{2n-7}}=1 \quad \text{по аналогии с 4}
+$
+\item $
+	\lim\limits_{n\to\infty}\dfrac{\sqrt[\leftroot{0}\uproot{2}n]{2}-1}{\sqrt[\leftroot{0}\uproot{2}n]{8}-1} \quad \text{используя $\sqrt[\leftroot{0}\uproot{2}n]{a}\approx1+\dfrac{\ln a}{n}$ при $n \to \infty$} \Rightarrow
+	\lim\limits_{n\to\infty}\dfrac{\sqrt[\leftroot{0}\uproot{2}n]{2}-1}{\sqrt[\leftroot{0}\uproot{2}n]{8}-1}=\dfrac{\ln 2}{\ln 8}
+$
+\item $
+\lim\limits_{n\to\infty}\dfrac{3+6+9+...+3n}{n^{2}+4}=\lim\limits_{n\to\infty}\dfrac{3n(n+1)}{n^{2}+4}=\lim\limits_{n\to\infty}\dfrac{3n^2(1+3/n)}{n^{2}(1+4/n^2)}=3
+$
+\end{enumerate}
+\clm{}{}{\textbf{Ответ:}
+\begin{enumerate}
+	\item $-\dfrac{1}{2}$
+	\item $-\dfrac{1}{2187}$
+	\item $\dfrac{9}{4}$
+	\item 1
+	\item 0
+	\item $e^{-6}$
+	\item -1
+	\item 1
+	\item $\dfrac{\ln 2}{\ln 8}$
+	\item 3
+\end{enumerate}
+}
+
+\qs{}{
+	Найти $\sup x_n,\: \inf x_n,\: \varliminf\limits_{n\to\infty}x_n,\: \varlimsup\limits_{n\to\infty}x_n$\\
+	$x_n=\dfrac{2n+1}{n}\arccos{(-1)^n}$
+}
+
+\parindent ДлДля начала рассмотрим последовательность при четных $n$:\\
+\[
+	x_n=\dfrac{2n+1}{n}\arccos{1}=0 \quad - \text{\sout{офигенная}хорошая подпоследовательность}
+\]
+Теперь рассмотрим при нечетных $n$:\\
+\[
+	x_n=\dfrac{2n+1}{n}\pi=2+\dfrac{1}{n}\pi\quad-  \text{понятно, что это убыв. подпоследовательность}
+\]
+Понятно, что других подпоследовательностей нету, тк в последовательности может быть 3 случая:
+\begin{enumerate}
+	\item Бесконечное количество четных и нечетных номеров, тогда такая подпоследовательность не сход, тк нельзя найти номер после которого $\varepsilon$ можно взять любым, тк при четных можно найти 0, а при нечетных найти >2
+	\item При конечном количестве четных и бесконечном количестве нечетных, можно найти номер с которого будут только нечетные, те подпоследовательность сход к $2$
+	\item По аналогии с 2, но подпоследовательность сход к 0
+\end{enumerate}
+Теперь мы готовы сказать, что $\sup x_n = 3\pi$, $\inf x_n = 0$, $\varliminf\limits_{n\to\infty}x_n = 0$, $\varlimsup\limits_{n\to\infty}x_n = 2$ --- из определения $\varlimsup\limits_{n\to\infty}x_n = \lim\limits_{n\to\infty}(\sup_{m\geq n}x_m)$
+\clm{}{}{\textbf{Ответ:}
+\begin{enumerate}
+	\item $\sup x_n = 3\pi$
+	\item $\inf x_n = 0$
+	\item $\varliminf\limits_{n\to\infty}x_n = 0$
+	\item $\varlimsup\limits_{n\to\infty}x_n = 2$
+\end{enumerate}
+}
+\qs{}{
+	Определить сходится ли последовательность:\\
+	\begin{center}
+	$x_n=x_{n-1}+\dfrac{1}{2^n}$
+	\end{center}
+}
+По критерию Коши: Если последовательность фундаментальна т.е.
+\begin{equation}
+	\forall \varepsilon > 0 \: \exists n_0:\: \forall n \geq n_0 \:\exists p \quad |x_{n+p}-x_n|<\varepsilon
+\end{equation}
+То последовательность сходится, для нашей последовательности возьмем p=1:
+\begin{equation}
+	x_n+\dfrac{1}{2^{n+1}}-x_n=\dfrac{1}{2^{n+1}}
+\end{equation}
+Понятно, что $\dfrac{1}{2^{n+1}}$ может быть сколь угодно малым $\Rightarrow$ последовательность сходится
+
+\qs{}{
+Используя признак Вейерштрасса, доказать, что данная последовательность сходится, и найти ее предел\\
+\begin{center}
+$x_n=\dfrac{5}{2}\cdot\dfrac{9}{7}\cdot\dfrac{13}{12}...\dfrac{4n+1}{5n-3}$
+\end{center}
+}
+
 \end{document}
+
 
 
