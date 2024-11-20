@@ -31,8 +31,75 @@
 }
 
 
+\sol
 \begin{enumerate}
-\item $\displaystyle \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \dfrac{\sin^2 x}{7^x+1} \dl x$
+\item
+Тк функции $\sin^2 x$ и $7^x$ - четные, то можно сказать что сумма интегралов с $x$ и $-x$ равна начальному интегралу/2:
+\begin{equation*}
+	2\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \dfrac{\sin^2 x}{7^x+1} \dl x= \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \dfrac{\sin^2 x}{7^x+1} \dl x+\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \dfrac{\sin^2 (-x)}{7^{-x}+1} \dl x=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \dfrac{\sin^2 x(2+7^x+7^{1/x})}{2+7^x+7^{1/x}}=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sin^2 x=\pi/2
+\end{equation*}
+Тогда ответ: $\pi/4$
+\item
+\begin{equation*}
+	\int_{0}^{\frac{\pi}{2}} \sqrt{1+\sin 2x} \dl x=\int_{0}^{\frac{\pi}{2}} \sqrt{\sin^2 x+2\cos x\sin x+\cos^2 x} \dl x=\int_{0}^{\frac{\pi}{2}} |\sin x+\cos x| \dl x=
+\end{equation*}
+\begin{equation*}
+	\int_{0}^{\frac{\pi}{2}} |\sin x| \dl x+\int_{0}^{\frac{\pi}{2}} |\cos x| \dl x=1+1=2
+\end{equation*}
+
+\item
+\begin{equation*}
+	\int_{0}^{1} \dfrac{x e^x}{(x+1)^2} \dl x=\int_{0}^{1} \dfrac{e^x}{x+1}-\dfrac{e^x}{(x+1)^2} \dl x=\int_{0}^{1} \dfrac{e^x}{x+1}\dl x-\int_{0}^{1}\dfrac{e^x}{(x+1)^2} \dl x
+\end{equation*}
+Пусть $u=e^x;\; \dl u=e^x\dl x ;\; \dl v=\dfrac{1}{(x+1)^2} \dl x; \; v=-\dfrac{1}{x+1}$\\
+Тогда:
+\begin{equation*}
+	\int_{0}^{1} \dfrac{e^x}{x+1}\dl x-\int_{0}^{1}\dfrac{e^x}{(x+1)^2} \dl x=\dfrac{e^x}{x+1}\dl x-\left(-e^x\dfrac{1}{x+1}+\int_{0}^{1} e^x\dfrac{1}{x+1} \dl x\right)=\dfrac{e^x}{x+1}=\dfrac{e}{2}-1
+\end{equation*}
+
 
 \end{enumerate}
+
+
+\clm{}{}{\textbf{Ответ:}
+
+\begin{enumerate}
+\item $\displaystyle \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \dfrac{\sin^2 x}{7^x+1} \dl x=\dfrac{\pi}{4}$
+\item $\displaystyle \int_{0}^{\frac{\pi}{2}} \sqrt{1+\sin 2x} \dl x=2$
+\item $\displaystyle \int_{0}^{1} \dfrac{x e^x}{(x+1)^2} \dl x=\dfrac{e}{2}-1$
+\end{enumerate}
+}
+
+\qs{}{
+\begin{enumerate}
+	\item $\displaystyle \int_{0}^{1} \dfrac{x-1}{\ln x} \dl x$
+	\item $\displaystyle \int_{0}^{1} \dfrac{\ln (x+1)}{x^2+1} \dl x$
+\end{enumerate}
+}
+\sol
+\begin{enumerate}
+	\item
+	Пусть $I(t)=\displaystyle \int_{0}^{1} \dfrac{x^t-1}{\ln x} \dl x$, тогда:
+	\begin{equation*}
+		I(t)'_t=\dfrac{\partial}{\partial t} \int_{0}^{1} \dfrac{x^t-1}{\ln x} \dl x=\int_{0}^{1} \dfrac{\partial}{\partial t}\dfrac{x^t-1}{\ln x} \dl x=\int_{0}^{1} x^t \dl x=\dfrac{1}{t+1}
+	\end{equation*}
+	\begin{equation*}
+		I(t)=\int_{0}^{1} \dfrac{1}{t+1} \dl t= \ln (t+1)+C
+	\end{equation*}
+	При $t=0$, начальный интеграл равен 0 поэтому $C=0$, и в начальном интеграле $t=1$, поэтому ответ: $\ln 2$\\
+	\item
+	\begin{equation*}
+	\int_{0}^{1} \dfrac{\ln (x+1)}{x^2+1} \dl x
+	\end{equation*}
+		Пусть $\displaystyle I(t)=\int_0^1 \dfrac{\ln (tx+t)}{x^2+1} \dl x$, тогда:
+	\begin{equation*}
+		I(t)'_t=\dfrac{\partial}{\partial t} \int_0^1 \dfrac{\ln (tx+t)}{x^2+1} \dl x=\int_0^1 \dfrac{\partial}{\partial t} \dfrac{\ln (tx+t)}{x^2+1} \dl x=\int_0^1 \dfrac{1}{t(1+x^2)} \dl x=\dfrac{\pi}{4t}
+	\end{equation*}
+	\begin{equation*}
+		I(t)=\int \dfrac{\pi}{4t} \dl t=\dfrac{\pi}{4}\ln t+C
+	\end{equation*}
+	При t=1 ответ: $0+C$, $C=\dfrac{\pi}{8}\ln 2$ - P.S. видимо так, я не успеваю дописать
+\end{enumerate}
+
+
 \end{document}
