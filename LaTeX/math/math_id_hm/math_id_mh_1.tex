@@ -353,8 +353,29 @@ $
 $x_n=\dfrac{5}{2}\cdot\dfrac{9}{7}\cdot\dfrac{13}{12}...\dfrac{4n+1}{5n-3}$
 \end{center}
 }
-
-
+\sol
+Нашу последовательность можно переписать ввиде:
+\begin{equation*}
+	x_{n}=x_{n-1}\dfrac{4n+1}{5n-3}, \; n_1=\dfrac{5}{2}
+\end{equation*}
+Тогда покажем, что она огр. снизу и монотонно убывает:
+\begin{equation*}
+	\dfrac{x_n}{x_{n-1}}=\dfrac{4n+1}{5n-3}  \end{equation*}
+Очевидно, что при $n>3$:
+\begin{equation*}
+\dfrac{4n+1}{5n-3}<1
+\end{equation*}
+Наша последовательность убывает, и очевидно она огр. снизу 0, тк каждый член получается путем, умножения положительных чисел
+Тогда найдем предел:
+\begin{equation*}
+	A=A\cdot \dfrac{4n+1}{5n-3} \Rightarrow A=0
+\end{equation*}
+Те наша последовательность имеет предел 0
+\clm{}{}{\textbf{Ответ:}
+\\
+\\
+$x_n=\dfrac{5}{2}\cdot\dfrac{9}{7}\cdot\dfrac{13}{12}...\dfrac{4n+1}{5n-3}\to0$
+}
 \qs{}{
 Найти сумму ряда:
 \[
