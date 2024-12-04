@@ -12,15 +12,15 @@ A = np.array([[1, 5, 7], [2, 4, 6], [3, 8, 9]])
 prices = np.array([130.5, 132.1, 131.4, 135.7, 136.5, 138.2, 139.0])
 
 
-mat_0=np.random.randint(0, 10, (4, 4))
-
-for i in range(0, 4):
-    if (mat_0[i]!=mat_0[(i+1)%4]).all() and (mat_0[i]!=mat_0[(i+2)%4]).all() and (mat_0[i]!=mat_0[(i+3)%4]).all():
-        for j in range(0, 4):
-            print(mat_0[j])
-    else:
-        mat_0=np.random.randint(0, 10, (4, 4))
-
+def mat(mat_0):
+    for i in range(0, 4):
+        if (mat_0[i]!=mat_0[(i+1)%4]).all() and (mat_0[i]!=mat_0[(i+2)%4]).all() and (mat_0[i]!=mat_0[(i+3)%4]).all():
+            for j in range(0, 4):
+                print(mat_0[j])
+        else:
+           return np.random.randint(0, 10, (4, 4))
+mat(mat_0=np.random.randint(0, 10, (4, 4))
+)
 
 foo = []
 for i in range(0, 3):
