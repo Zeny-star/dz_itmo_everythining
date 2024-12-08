@@ -11,15 +11,13 @@ class Restaurant():
         self.info = [working_hours, owner, adress, http, rating]
 
     def get_info(self):
-        print(self.info)
+        print('Часы работы:', self.info[0],'; ', 'Владелец:',self.info[1], '; ','Адрес:', self.info[2], '; ','Веб страница:', self.info[3],'; ','Рейтинг:', self.info[4])
 
     def open(self):
         self.is_open = True
-        pass
 
     def close(self):
         self.is_open = False
-        pass
 
     def get_rating(self):
         sum = 0
@@ -38,4 +36,7 @@ res.set_rating(3)
 print(res.get_rating())
 res.set_info(10, 'Anton', 'Saint-Petesburg', 'google.com', res.get_rating())
 res.get_info()
+
+
+
 

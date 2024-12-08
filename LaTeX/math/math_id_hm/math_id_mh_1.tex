@@ -397,8 +397,35 @@ $\displaystyle \sum_{n=1}^{\infty}\dfrac{12}{4n^2-8n-5}=-\dfrac{2}{3}$
 }
 
 
+\qs{}{
+Доказать по определению предела функции в точке (по Коши):
+\[
+	\lim\limits_{x\to1} \dfrac{5x^2-4x-1}{x-1}=6
+\]
+}
+\sol
+Из определения предела по Коши:
+\begin{equation*}
+\forall \varepsilon > 0 \enspace \exists \delta > 0: \forall x \in \mathbb{R}: \left| x-1\right|<\delta \Rightarrow \left|\dfrac{5x^2-4x-1}{x-1}-6\right|<\varepsilon
+\end{equation*}
+Раскроем модуль, тогда:
+\begin{equation*}
+\left|\dfrac{5x^2-4x-1}{x-1}-6\right|<\varepsilon \Rightarrow \left|\dfrac{5x^2-10x+5}{x-1}\right| \Rightarrow \left|x-1 \right|<\dfrac{\varepsilon}{5}
+\end{equation*}
+Понятно, что если мы возьмем $\delta=\dfrac{\varepsilon}{5}$, то все ок
+
+\qs{}{
+Доказать, что данный предел не существует:
+\[
+\lim\limits_{x\to +\infty} \tg x
+\]
+}
+\sol
+Чтобы показать, что предела не существует, нужно найти две последовательности, которые сходятся в разные точки:
+\begin{equation*}
+	x_{n_1}=\dfrac{\pi}{4}+\pi k, \enspace k \in \mathbb{Z} \quad \enspace
+	x_{n_2}=\pi q, \enspace q \in \mathbb{Z}
+\end{equation*}
+Понятно, что $x_{n_1}$ идет к 1, а $x_{n_2}$ идет к 0, те \sout{беспредел} предела не существует
 \end{document}
-
-
-
 
