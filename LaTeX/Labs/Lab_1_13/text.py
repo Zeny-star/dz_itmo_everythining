@@ -67,7 +67,7 @@ def plot_graph_with_error(t, omega, A, sigma_A, label):
         t, 
         yerr=2 * sigma_A,  # Доверительный интервал (2σ)
         fmt='o', 
-        label=f'погрешность {label}',
+        label=f'Эксперимент {label}',
         capsize=5, 
         capthick=1
     )

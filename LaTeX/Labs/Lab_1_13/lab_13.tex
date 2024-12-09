@@ -9,6 +9,7 @@
 \usepackage{caption}
 \usepackage{geometry}
 \usepackage{pdfpages}
+\usepackage{siunitx}
 \geometry{top=2cm,bottom=2cm,left=2cm,right=2cm}
 
 \newcommand{\minus}{\scalebox{0.75}[1.0]{$-$}}
@@ -131,10 +132,38 @@ L=Fl
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=0.3\textwidth]{pick_4.png}
+\includegraphics[width=0.7\textwidth]{pick_4.png}
 \end{center}
 \end{figure}
 
 
+\[
+    I_{\text{exp, 1}} = 0.01179 \pm 0.00565 \, , \quad \text{или} \quad [0.00614, 0.01744] \,\text{кг$\cdot$ м$^2$}
+\]
 
+\[
+I_{\text{exp, 2}} = 0.01693 \pm 0.00322, \quad \text{или} \quad [0.01371, 0.02015] \,\text{кг$\cdot$ м$^2$}
+\]
+
+\[
+I_{\text{exp, 3}} = 0.01472 \pm 0.00789, \quad \text{или} \quad [0.00683, 0.02261] \,\text{кг$\cdot$ м$^2$}
+\]
+\[
+\Delta I_{\text{1}} = |0.01179 - 0.01172| = 0.00007 \,\text{кг$\cdot$ м$^2$}
+\]
+
+\[
+\Delta I_{\text{2}} = |0.01693 - 0.01172| = 0.00521 \,\text{кг$\cdot$ м$^2$}
+\]
+
+\[
+\Delta I_{\text{3}} = |0.01472 - 0.01172| = 0.00300 \,\text{кг$\cdot$ м$^2$}
+\]
+\section{\textbf{Вывод}}
+Из результатов можно сделать вывод, что теория совпадает с экспериментальными данными. Малые отклонения могут быть вызваны несколькими причинами:
+\begin{enumerate}
+	\item Время замерялось ручным таймером, те есть человеческая реакция
+	\item Во время эксперимента регулировочный груз менял свое положение, поэтому за период главная ось отклонялась на малый угол
+	\item При движении гироскопа, есть небольшая нутация, которая приводит к изменению времени движения
+\end{enumerate}
 \end{document}
