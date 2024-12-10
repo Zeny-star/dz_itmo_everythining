@@ -1,28 +1,9 @@
-class Building():
-    def __init__(self, name, type_of):
-        self.is_open = False
-        self.name=name
-        self.type_of=type_of
-
-    def set_info(self):
-        pass
-
-    def get_info(self):
-        pass
-
-    def open(self):
-        self.is_open = True
-
-    def close(self):
-        self.is_open = False
-
-
-class Restaurant(Building):
+class Restaurant():
     def __init__(self, name, cusine):
-        super().__init__(name, 'Restaurant')
         self.name=name
         self.cusine=cusine
         self.info=[]
+        self.is_open = False
         self.rating = []
 
 
@@ -32,8 +13,12 @@ class Restaurant(Building):
     def get_info(self):
         print('Часы работы:', self.info[0],'; ', 'Владелец:',self.info[1], '; ','Адрес:', self.info[2], '; ','Веб страница:', self.info[3],'; ','Рейтинг:', self.info[4])
 
-    def is_open(self):
-        return self.is_open
+    def open(self):
+        self.is_open = True
+
+    def close(self):
+        self.is_open = False
+
     def get_rating(self):
         sum = 0
         for i in self.rating:
