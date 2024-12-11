@@ -45,7 +45,6 @@ def repeat_sum(l):
                     if l[k][d] == l[i][j] and k != i:
                         sum.append(l[k][d])
             return sum
-
 #print(repeat_sum([[1, 2, 3],[2, 8, 9],[7, 123, 8]])) # --> 10
 #print(repeat_sum([[1], [2], [3, 4, 4, 4], [123456789]])) # --> 0
 #print(repeat_sum([[1, 8, 8], [8, 8, 8], [8, 8, 8, 1]])) # --> 9
@@ -84,3 +83,7 @@ print(count_salutes('------')) # --> 0
 print(count_salutes('>>>>>>>>>>>>>>>>>>>>>----<->')) # --> 42
 print(count_salutes('<<----<>---<')) # --> 2
 print(count_salutes('>')) # --> 0
+
+
+
+print(repeat_sum([[1, 2, 3],[2, 8, 9],[7, 123, 8]])) # --> 10
