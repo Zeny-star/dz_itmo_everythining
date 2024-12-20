@@ -1,14 +1,16 @@
+
 import numpy as np
 from scipy.integrate import solve_ivp
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 
+# Константы
 w = 7.2921e-5
 R_0 = 6371e3
 G = 6.67e-11
 M_e = 5.97e24
 
-#просто диффуры
+# Дифференциальные уравнения
 def equations(t, state, R, M, pxi_0):
     x, y, z, vx, vy, vz = state
     g_E0 = G * M / R**2
@@ -25,7 +27,8 @@ def equations(t, state, R, M, pxi_0):
     ay_1 = g_y_y * y - 2 * w_z * vx + 2 * w_x * vz
     az_1 = -g_0 + g_x_z * x + g_z_z * z - 2 * w_x * vy
     return [vx, vy, vz, ax_1, ay_1, az_1]
-#с аппроксимизацией
+
+# Вычисление конечных координат
 def calculate_final_coordinates(initial_height, initial_angle, initial_velocity, planet_radius, planet_mass):
     pxi_0 = np.radians(initial_angle)
     R = planet_radius
@@ -39,7 +42,7 @@ def calculate_final_coordinates(initial_height, initial_angle, initial_velocity,
     x_final, y_final = solution.y[0, -1], solution.y[1, -1]
     return x_final, y_final
 
-
+# Обновление графиков
 def update_plot(val):
     initial_angle = angle_slider.val
     initial_velocity = velocity_slider.val
@@ -49,15 +52,24 @@ def update_plot(val):
     initial_heights = np.linspace(4, 1596, 100)
     final_x = []
     final_y = []
+    approximations = []
+    differences = []
 
     for h in initial_heights:
         x, y = calculate_final_coordinates(h, initial_angle, initial_velocity, planet_radius, planet_mass)
         final_x.append(x)
         final_y.append(y)
+        approximation = np.sqrt(x**2 + y**2)  # Аппроксимация
+        approximations.append(approximation)
+        differences.append(approximation - y)  # Разность между аппроксимацией и Y
 
+    # Очистка предыдущих графиков
     ax1.clear()
     ax2.clear()
+    ax3.clear()
+    ax4.clear()
 
+    # График 1: Конечный X
     ax1.plot(initial_heights, final_x, label="Конечный X", color="blue")
     ax1.set_xlabel("Начальная высота (м)")
     ax1.set_ylabel("Конечный X (м)")
@@ -65,6 +77,7 @@ def update_plot(val):
     ax1.grid()
     ax1.legend()
 
+    # График 2: Конечный Y
     ax2.plot(initial_heights, final_y, label="Конечный Y", color="green")
     ax2.set_xlabel("Начальная высота (м)")
     ax2.set_ylabel("Конечный Y (м)")
@@ -72,11 +85,29 @@ def update_plot(val):
     ax2.grid()
     ax2.legend()
 
+    # График 3: Аппроксимация
+    ax3.plot(initial_heights, approximations, label="Аппроксимация", color="red")
+    ax3.set_xlabel("Начальная высота (м)")
+    ax3.set_ylabel("Аппроксимация (м)")
+    ax3.set_title("Аппроксимация расстояния")
+    ax3.grid()
+    ax3.legend()
+
+    # График 4: Разность аппроксимации и Y
+    ax4.plot(initial_heights, differences, label="Разность (Аппр - Y)", color="purple")
+    ax4.set_xlabel("Начальная высота (м)")
+    ax4.set_ylabel("Разность (м)")
+    ax4.set_title("Разность аппроксимации и Y")
+    ax4.grid()
+    ax4.legend()
+
     plt.draw()
 
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
-plt.subplots_adjust(left=0.25, right=0.95, bottom=0.25)
+# Настройка фигуры
+fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 12))
+plt.subplots_adjust(left=0.25, right=0.95, bottom=0.25, hspace=0.4, wspace=0.4)
 
+# Ползунки
 ax_angle = plt.axes([0.25, 0.15, 0.65, 0.03])
 ax_velocity = plt.axes([0.25, 0.1, 0.65, 0.03])
 ax_radius = plt.axes([0.25, 0.05, 0.65, 0.03])
@@ -87,11 +118,13 @@ velocity_slider = Slider(ax_velocity, 'Скорость_y (м/с)', 0, 1000, val
 radius_slider = Slider(ax_radius, 'Радиус (м)', 1e6, 1e7, valinit=R_0, valstep=1e5)
 mass_slider = Slider(ax_mass, 'Масса (кг)', 1e23, 1e25, valinit=M_e, valstep=1e23)
 
+# Привязка обновления графиков к ползункам
 angle_slider.on_changed(update_plot)
 velocity_slider.on_changed(update_plot)
 radius_slider.on_changed(update_plot)
 mass_slider.on_changed(update_plot)
 
+# Инициализация графиков
 update_plot(None)
 
 plt.show()
