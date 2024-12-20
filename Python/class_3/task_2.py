@@ -9,10 +9,6 @@ def repeat_sum(l):
                 a.append(j)
         lst = lst + i
     return res
-print(repeat_sum([[1, 2, 3],[2, 8, 9],[7, 123, 8]])) # --> 10
-print(repeat_sum([[1], [2], [3, 4, 4, 4], [123456789]])) # --> 0
-print(repeat_sum([[1, 8, 8], [8, 8, 8], [8, 8, 8, 1]])) # --> 9
-
 def bracket_pairs(s):
     f = []
     pairs = {}
@@ -20,9 +16,11 @@ def bracket_pairs(s):
         if j == '(':
             f.append(i)
         elif j == ')':
-            if not f:
+            try:
+                pairs[f[-1]] = i
+                f.pop()
+            except:
                 return False
-            pairs[f.pop()] = i
     return pairs
 
 # Пример использования
@@ -34,3 +32,41 @@ print(bracket_pairs(")(")) # --> False
 print(bracket_pairs("(a(b)c()d)")) # --> {0:9,2:4,6:7}
 print(bracket_pairs("f(x[0])")) # --> {1:6}
 
+
+
+def cats_and_mice(mapping, moves):
+    cat_cord_y = 0
+    cat_cord_x = 0
+    mouse_cord_y = 0
+    mouse_cord_x = 0
+    y_cord =0
+
+    if 'C' in mapping and 'm' in mapping:
+        for y in mapping.split():
+            y_cord +=1
+            if 'C' in y:
+                cat_cord_x=y.index('C')
+                cat_cord_y=y_cord
+            if 'm' in y:
+                mouse_cord_x=y.index('m')
+                mouse_cord_y=y_cord
+        if abs(mouse_cord_y-cat_cord_y)+abs(mouse_cord_x-cat_cord_x) < moves:
+            return 'caught'
+        else:
+            return 'run'
+    else:
+        return 'We need two animals!'
+
+
+print(cats_and_mice("""\
+            ..C......
+            .........
+            ....m....""", 6)) # должно вернуть Caught!
+print(cats_and_mice("""\
+            .C.......
+            .........
+            ......m..""", 6)) # должно вернуть Run!
+print(cats_and_mice("""\
+            ..C......
+            .........
+            .........""", 6)) # должно вернуть We need two animals!
