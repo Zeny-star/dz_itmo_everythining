@@ -1,0 +1,29 @@
+\documentclass[hoptionsi, twocolumn]{revtex4-2}
+\usepackage[english,russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{wrapfig}
+
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = blue, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor   = red %Colour of citations
+}
+
+\begin{document}
+
+\section{\textbf{Численное моделирование}}
+
+Для численного моделировая использовался язык python, с пакетами scipy, numpy, matplotlib. Для численного решения дифференциальных уравнений использовался метод \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html}{solveivp}, с методом интегрирования \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#r179348322575-1}{DOP853}, данный метод подходит, так как величина шага в нем $10^{-7}$, что на порядок меньше чем разность аппроксимации.
+\bibliography{plus} 
+\end{document}

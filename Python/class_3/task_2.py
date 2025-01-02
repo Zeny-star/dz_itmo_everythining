@@ -21,6 +21,8 @@ def bracket_pairs(s):
                 f.pop()
             except:
                 return False
+    if i <1 or j<1:
+        return False
     return pairs
 
 # Пример использования

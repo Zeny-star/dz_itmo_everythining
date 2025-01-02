@@ -9,6 +9,31 @@ import numpy as np
 # Use -n <number> to skip ahead to the n'th animation of a scene.
 
 
+
+class CylinderVolume(Scene):
+    def construct(self):
+        # Axes setup
+        axes = Axes(
+            x_range=[0, 0.8, 0.2],  # X-axis range: 0 to 0.8 with step 0.2
+            y_range=[0, 1.5, 0.5],  # Y-axis range: 0 to 1.5 with step 0.5
+            axis_config={"include_numbers": True},
+        )
+        axes_labels = axes.get_axis_labels(x_label="r/a", y_label="V/a³")
+
+        # Define the volume function
+        volume_function = axes.plot(
+            lambda r: (np.pi * r**2 * (3 - 2 * (np.sqrt(2) * r)**2)**0.5)
+            if (3 - 2 * (np.sqrt(2) * r)**2) >= 0
+            else 0,
+            color=BLUE,
+            x_range=[0, 1 / np.sqrt(2)],
+        )
+
+        # Add graph and labels
+        self.play(Create(axes), Write(axes_labels))
+        self.play(Create(volume_function))
+        self.wait(2)# Save and run this file with the Manim renderer (e.g., `manim -pql filename.py CylinderVolume`)
+
 class OpeningManimExample(Scene):
     def construct(self):
         intro_words = Text("""

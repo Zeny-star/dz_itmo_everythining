@@ -1,4 +1,3 @@
-
 import numpy as np
 from scipy.integrate import solve_ivp
 import matplotlib.pyplot as plt
@@ -9,7 +8,7 @@ w = 7.2921e-5
 R_0 = 6371e3
 G = 6.67e-11
 M_e = 5.97e24
-
+M_sun = 1.989e30
 # Дифференциальные уравнения
 def equations(t, state, R, M, pxi_0):
     x, y, z, vx, vy, vz = state
@@ -38,7 +37,7 @@ def calculate_final_coordinates(initial_height, initial_angle, initial_velocity,
     g_0 = g_E0 * (1 - w**2 * R / g_E0 * np.sin(pxi_0)**2)
     t_span = (0, (2 * initial_state[2] / g_0)**0.5)
     t_eval = np.linspace(*t_span, 1000)
-    solution = solve_ivp(equations, t_span, initial_state, t_eval=t_eval, method='RK45', args=(R, M, pxi_0))
+    solution = solve_ivp(equations, t_span, initial_state, t_eval=t_eval, method='DOP853', args=(R, M, pxi_0))
     x_final, y_final = solution.y[0, -1], solution.y[1, -1]
     return x_final, y_final
 
@@ -114,10 +113,10 @@ ax_radius = plt.axes([0.25, 0.05, 0.65, 0.03])
 ax_mass = plt.axes([0.25, 0.0, 0.65, 0.03])
 
 angle_slider = Slider(ax_angle, 'Угол (градусы)', 0, 90, valinit=45, valstep=1)
-velocity_slider = Slider(ax_velocity, 'Скорость_y (м/с)', 0, 1000, valinit=0, valstep=10)
+velocity_slider = Slider(ax_velocity, 'Скорость_y (м/с)', 0, 1000, valinit=0, valstep=0.1)
 radius_slider = Slider(ax_radius, 'Радиус (м)', 1e6, 1e7, valinit=R_0, valstep=1e5)
-mass_slider = Slider(ax_mass, 'Масса (кг)', 1e23, 1e25, valinit=M_e, valstep=1e23)
-
+#mass_slider = Slider(ax_mass, 'Масса (кг)', 1e23, 1e25, valinit=M_e, valstep=1e23)
+mass_slider = Slider(ax_mass, 'Масса (кг)', M_e, M_sun, valinit=M_e, valstep=(M_sun - M_e) / 100)
 # Привязка обновления графиков к ползункам
 angle_slider.on_changed(update_plot)
 velocity_slider.on_changed(update_plot)
