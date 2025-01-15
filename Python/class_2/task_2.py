@@ -23,7 +23,7 @@ class Admin(User):
         self.admin_list= set(username)
 
     def display_ban_list(self):
-        return print("стена банов - ", self.ban_list)
+        return print("стена  - ", self.ban_list)
 
     def block_user(self, user):
         self.ban_list.add(user)

@@ -14,3 +14,4 @@ def highest_point(alpha, v):
     return (v**2 * math.sin(math.radians(alpha))**2) / (2 * 9.81)
 def travel_distance(alpha, v):
     return (v**2 * math.sin(2 * math.radians(alpha))) / 9.81
+triangle_area((0, 0), (3, 0), (3, 2))
