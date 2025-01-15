@@ -58,7 +58,6 @@ def plot_errors(h_values, errors, x_values, title, ylabel="Ошибка"):
     plt.ylabel(ylabel)
     plt.title(title)
     plt.legend()
-    plt.grid(which="both", linestyle="--", linewidth=0.5)
     plt.show()
 
 # Plot for twice differentiable function
