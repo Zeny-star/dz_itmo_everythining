@@ -1,4 +1,3 @@
-import scipy
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
@@ -14,11 +13,9 @@ teta = [44.592170, 39.115080, 32.533370, 23.256540, 11.721840, 2.992863, -8.8250
 
 g = 9.81
 
-#plt.plot(t, y)
-#plt.show()
 t_fine = np.linspace(np.array(t).min(), np.array(t).max(), 500)  # новые точки времени для гладкости
-x_interp = interp1d(t, x, kind='cubic')(t_fine)  # аппроксимация x(t)
-y_interp = interp1d(t, y, kind='cubic')(t_fine)  # аппроксимация y(t)
+x_interp = interp1d(t, x, kind='cubic')(t_fine)
+y_interp = interp1d(t, y, kind='cubic')(t_fine)
 fig, axs = plt.subplots(2, 1, figsize=(7, 7), sharex=True)
 
 axs[0].plot(t, x, 'o-', label="$x(t)$ (основной)", color="#5986e4", lw=1.5, markersize=4)
@@ -34,7 +31,7 @@ axs[1].set_xlabel("t (с)", fontsize=14)
 axs[1].legend(fontsize=12)
 
 plt.tight_layout()
-#plt.show()
+plt.show()
 
 
 t_up_theory = t_fine[list(y_interp).index(y_interp.max())]
@@ -61,7 +58,6 @@ v_2 = np.sqrt(vx_exp_2**2+vy_exp_2**2)
 t_up_0 = v_0*np.sin(teta[1])/g
 t_up_1 = v_1*np.sin(teta[1])/g
 t_up_2 = v_2*np.sin(teta[1])/g
-
 
 t_down_0 = t_up_0*2
 t_down_1 = t_up_1*2

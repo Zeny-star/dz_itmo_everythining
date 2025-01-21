@@ -10,8 +10,11 @@ b=40/1000
 m=405/1000
 I_0=0.008
 g=9.81
+Delta_m = 0.0001
+Delta_R = 0.0001
 
 T = np.mean(t) / 10
+print(T)
 t_1 = np.array([37.02, 36.98, 37.38, 37.48])
 t_2 = np.array([79.95, 81.24, 81.28, 81.26])
 t_3 = np.array([130.81, 133.1, 132.02, 131.39])
@@ -83,6 +86,7 @@ R_side = np.array(R_side)
 I_gr = m * (R_up**2 + R_down**2 + 2 * R_side**2)
 I = I_gr + I_0  # Полный момент инерции
 
+print(f'I = {I}')
 # Построение графика T^2(I)
 plt.figure(figsize=(12, 6))
 plt.plot(I, T_squared, 'o', label='Данные $T^2(I)$', color='blue')
@@ -101,7 +105,7 @@ plt.legend()
 
 # Вывод углового коэффициента
 print('Коэффициенты линейной аппроксимации:', coeffs)
-print(f"Угловой коэффициент k = {coeffs[0]:.4f} с²/(кг·м²)")
+print(f"Угловой коэффициент k = {coeffs[0]:.4} с²/(кг·м²)")
 plt.show()
 
 l_th = (R_down-R_up)/4
@@ -114,4 +118,26 @@ print('ml_ex', 4*np.pi**2/(g*coeffs[0]))
 print('l_th', l_th)
 print('l_pr_th', l_pr_th)
 print('l_pr_ex', l_pr_ex)
+
+Delta_l_th = np.sqrt(Delta_R**2 + Delta_R**2) / 4
+
+Delta_I_up = np.sqrt((2 * m * R_up * Delta_R)**2 + (R_up**2 * Delta_m)**2)
+Delta_I_down = np.sqrt((2 * m * R_down * Delta_R)**2 + (R_down**2 * Delta_m)**2)
+Delta_I_side = np.sqrt(np.sum((2 * m * R_side * Delta_R)**2 + (R_side**2 * Delta_m)**2) / len(R_side))
+Delta_I = np.sqrt(Delta_I_up**2 + Delta_I_down**2 + Delta_I_side**2)
+
+
+# Теоретическая приведённая длина
+l_pr_th = I / (4 * m * l_th)
+
+# Погрешность теоретической приведённой длины
+Delta_l_pr_th = np.sqrt(
+    (Delta_I / (4 * m * l_th))**2 +
+    (I * Delta_m / (4 * m**2 * l_th))**2 +
+    (I * Delta_l_th / (4 * m * l_th**2))**2
+)
+
+# Вывод результатов
+print(f"Теоретическая приведённая длина: l_pr_th = {l_pr_th.mean():.6f} м")
+print(f"Погрешность теоретической приведённой длины: Delta_l_pr_th = {Delta_l_pr_th.mean():.6f} м")
 
