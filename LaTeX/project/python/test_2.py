@@ -4,8 +4,9 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 from matplotlib.widgets import Button
-from matplotlib.ticker import MaxNLocator
 
+
+plt.rcParams.update({'font.size': 19})
 w = 7.2921e-5
 R_0 = 6371e3
 G = 6.67e-11
@@ -125,24 +126,23 @@ def update_plot(val):
     ax3.clear()
     ax4.clear()
 
-    ax1.plot(initial_heights, np.array(final_x)*1e3, label="$\Delta x$", color="blue")
+    ax1.plot(initial_heights, np.array(final_x)*10**3, label="$\Delta x$", color="blue")
+    ax1.text(0.09, 2.35, r"1e$-$3", transform=ax3.transAxes, fontsize=19, va='top', ha='right')
     ax1.set_xlabel("$h$ $(м)$")
     ax1.set_ylabel("Конечный $x$ $(м)$")
     ax1.legend()
     ax1.set_xlim(0, max(initial_heights))
     ax1.set_ylim(0, None)
 
-    if len(initial_heights) == len(approximations):
-        ax2.plot(initial_heights, approximations, label="Приближение", color="red")
-    else:
-        print("Размеры массивов не совпадают:", len(initial_heights), len(approximations))
-
-    ax2.plot(initial_heights, final_y, label="$\Delta y$", color="green")
-    ax2.plot(initial_heights, approximations, color="red")
+    
+    ax2.plot(initial_heights, np.array(final_y)*10**6, label="$\Delta y$", color="green")
+    ax2.plot(initial_heights, np.array(approximations)*10**6,label="Приближение", color="red")
+    ax2.text(1.37, 2.35, r"1e$-$6", transform=ax2.transAxes, fontsize=19, va='top', ha='right')
     ax2.set_xlabel("$h$ (м)")
     ax2.set_ylabel("Конечный $y$ (м)")
     ax2.set_xlim(0, max(initial_heights))
     ax2.set_ylim(0, None)
+    ax2.legend(loc="lower right")
 
     y_zoom_range = (final_y[10]-(final_y[10]-approximations[10]), final_y[10]+(final_y[10]-approximations[10]))  # Диапазон увеличения по x
     x_zoom_range = (initial_heights[10]-(final_y[10]-approximations[10])*10**3, initial_heights[10]+(final_y[10]-approximations[10])*10**3)
@@ -157,28 +157,28 @@ def update_plot(val):
     zoom_ax.set_xticks(x_ticks)
     zoom_ax.set_yticks(y_ticks)
 
-    zoom_ax.set_xticklabels([f"{tick:.2f}" for tick in x_ticks], fontsize=8)
+    zoom_ax.set_xticklabels([f"{tick:.2f}" for tick in x_ticks], fontsize=15)
     print(x_ticks)
-    zoom_ax.set_yticklabels([f"{tick:.2e}" for tick in y_ticks], fontsize=8)
+    zoom_ax.set_yticklabels([f"{tick:.2e}" for tick in y_ticks], fontsize=15)
     print(y_ticks)
 
-
-    zoom_ax.legend(fontsize=8)
 
 
     ax3.plot(initial_heights, np.array(differences)*10**3, label="Разность (приближение - $\Delta y$)", color="purple")
     ax3.set_xlabel("$h$ $(м)$")
-    ax3.text(0.09, 1.06, r"1e$-$3", transform=ax3.transAxes, fontsize=10, va='top', ha='right')
+    ax3.text(0.09, 1.06, r"1e$-$3", transform=ax3.transAxes, fontsize=19, va='top', ha='right')
     ax3.set_ylabel("Разность $(м)$")
     ax3.legend()
     ax3.set_xlim(0, max(initial_heights))
     ax3.set_ylim(0, None)
 
-    ax4.plot(initial_heights, differences_x, label="Разность (приближение - $\Delta x$)", color="purple")
+    ax4.plot(initial_heights, np.array(differences_x), label="Разность (приближение - $\Delta x$)", color="purple")
     ax4.set_xlabel("$h$ $(м)$")
     ax4.set_ylabel("Разность $(м)$")
     ax4.set_xlim(0, max(initial_heights))
     ax4.set_ylim(0, None)
+    #ax3.text(1.37, 1.06, r"1e$-$6", transform=ax3.transAxes, fontsize=19, va='top', ha='right')
+    ax4.legend()
     plt.draw()
 
 fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 12))
@@ -192,10 +192,10 @@ ax_velocity_z = plt.axes([0.25, 0.1, 0.65, 0.03])
 ax_radius = plt.axes([0.25, 0.05, 0.65, 0.03])
 ax_mass = plt.axes([0.25, 0.0, 0.65, 0.03])
 
-angle_slider = Slider(ax_angle, r'$\psi_0^{\circ}$', 0, 90, valinit=90, valstep=45)
-velocity_x_slider = Slider(ax_velocity_x, '$v_{0x}$ (м/с)', 0, 110, valinit=0, valstep=0.1)
-velocity_y_slider = Slider(ax_velocity_y, '$v_{0y}$ (м/с)', 0, 1000, valinit=0, valstep=0.1)
-velocity_z_slider = Slider(ax_velocity_z, '$v_{oz}$ (м/с)', 0, 1000, valinit=0, valstep=0.1)
+angle_slider = Slider(ax_angle, r'$\psi_0^{\circ}$', 0, 90, valinit=0, valstep=1)
+velocity_x_slider = Slider(ax_velocity_x, '$v_{0x}$ (м/с)', 0, 100, valinit=0, valstep=0.1)
+velocity_y_slider = Slider(ax_velocity_y, '$v_{0y}$ (м/с)', 0, 100, valinit=0, valstep=0.1)
+velocity_z_slider = Slider(ax_velocity_z, '$v_{oz}$ (м/с)', 0, 100, valinit=0, valstep=0.1)
 radius_slider = Slider(ax_radius, '$R_E$ (м)', 1e6, 1e7, valinit=R_0, valstep=1e5)
 mass_slider = Slider(ax_mass, '$M_{E}$ (кг)', M_e, M_sun, valinit=M_e, valstep=(M_sun - M_e) / 100)
 
