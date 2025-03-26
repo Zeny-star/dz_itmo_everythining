@@ -1,0 +1,47 @@
+\documentclass{report}
+
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{diffcoeff,amssymb}
+\usepackage{mathtools}
+\usepackage[normalem]{ulem}
+
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+
+\newcommand\smallO{
+  \mathchoice
+    {{\scriptstyle\mathcal{O}}}% \displaystyle
+    {{\scriptstyle\mathcal{O}}}% \textstyle
+    {{\scriptscriptstyle\mathcal{O}}}% \scriptstyle
+    {\scalebox{.7}{$\scriptscriptstyle\mathcal{O}$}}%\scriptscriptstyle
+}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=cyan,
+    citecolor=green
+}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+\title{\Huge{Линейная алгебра}}
+
+\author{\huge{Lt}}
+\date{}
+
+\begin{document}
+\tableofcontents
+\maketitle
+\textbf{\huge{Полилинейная алгебра}}
+\section{\textbf{}}
+
+\end{document}
+

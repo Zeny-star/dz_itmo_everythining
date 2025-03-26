@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1740724087.26522 "2_8.tex" "2_8.pdf" "2_8" 1740724088.52041 0
+["pdflatex"] 1741291860.79957 "2_8.tex" "2_8.pdf" "2_8" 1741291861.96971 0
   "/Users/evgenijturcanin/.texlive2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1000.tfm" 1728560716.5242 3300 6abb8e321227ead2a8e929e5abc72bd3 ""
   "/Users/evgenijturcanin/.texlive2024/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1728560719.57625 3304 6a543c07045572737981351171e0505e ""
   "/Users/evgenijturcanin/.texlive2024/texmf-var/fonts/tfm/lh/lh-t2a/lacc1000.tfm" 1728560715.01402 3148 304b6cf84fcf77701cb31c2e3e8c6709 ""
@@ -116,13 +116,14 @@
   "/opt/homebrew/Cellar/texlive/20240312_2/share/texmf-dist/tex/latex/xcolor/xcolor.sty" 1710106625 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "/opt/homebrew/Cellar/texlive/20240312_2/share/texmf-dist/web2c/texmf.cnf" 1710106625 41652 e14926ab86fde7902cad99d9eeaa5ca5 ""
   "/opt/homebrew/Cellar/texlive/20240312_2/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1710106625 8221848 a964b4b30d7029e209b5bf1ea55ab6d2 ""
-  "2_8.aux" 1740724088.39154 2627 5e7618ef44260170af571b19044a8d1e "pdflatex"
-  "2_8.out" 1740724088.39548 911 ad61501ede5452376f65efe5ef2fb66d "pdflatex"
-  "2_8.tex" 1740724086.10052 23177 e7a3de09e0070776de31a1bfe203b23d ""
-  "pick_1.png" 1740690289.37692 23912 5a1ea2d18930567d2742aac1099117c3 ""
-  "pick_2.png" 1740691781.50496 49444 a56cb85ee76420c1cf12a1f11101bdbd ""
-  "pick_3.png" 1740692036.85758 36525 4307ac006f90c256dd98c704b3568415 ""
-  "pick_4.png" 1740696064.17092 274778 e77a7d444c3ec7cd79f2b8d70e37b7cc ""
+  "2_8.aux" 1741291861.84979 3424 260bbeaab3d90043aeec6c7a08ecbf37 "pdflatex"
+  "2_8.out" 1741291861.85378 994 6e5cb56c8c60fbcd0b71536ec8d92162 "pdflatex"
+  "2_8.tex" 1741291858.89109 30117 0568c7dae9e2a6e292c5bf151207a68b ""
+  "graf_1.png" 1741290763.85873 80238 cc16b0c7348371e98f269f52c06e9c19 ""
+  "pick_1.png" 1741284840.78284 23912 5a1ea2d18930567d2742aac1099117c3 ""
+  "pick_2.png" 1741284840.78361 49444 a56cb85ee76420c1cf12a1f11101bdbd ""
+  "pick_3.png" 1741284840.7842 36525 4307ac006f90c256dd98c704b3568415 ""
+  "pick_4.png" 1741284840.78519 274778 e77a7d444c3ec7cd79f2b8d70e37b7cc ""
   (generated)
   "2_8.aux"
   "2_8.log"

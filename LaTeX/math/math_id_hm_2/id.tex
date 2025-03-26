@@ -7,8 +7,7 @@
 \usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{diffcoeff,amssymb}
-\usepackage{mathtool}
-
+\usepackage[normalem]{ulem}
 
 \input{preamble}
 \input{macros}
@@ -16,23 +15,84 @@
 
 \newcommand\smallO{
   \mathchoice
-    {{\scriptstyle\mathcal{O}}}% \displaystyle
-    {{\scriptstyle\mathcal{O}}}% \textstyle
-    {{\scriptscriptstyle\mathcal{O}}}% \scriptstyle
-    {\scalebox{.7}{$\scriptscriptstyle\mathcal{O}$}}%\scriptscriptstyle
-  }
+    {{\scriptstyle\mathcal{O}}}
+    {{\scriptstyle\mathcal{O}}}
+    {{\scriptscriptstyle\mathcal{O}}}
+    {\scalebox{.7}{$\scriptscriptstyle\mathcal{O}$}}
+}
 
 
-\title{\Huge{Интегралы}}
+\title{\Huge{Матан инд}\\ Вариант №18}
 
 \author{\huge{Евгений Турчанин}}
+
 \date{}
 \begin{document}
 \maketitle
+\qs{}{
+Найти площадь фигуры, ограниченную кривыми:
+\begin{enumerate}
+    \item $\left(x^2+y^2\right)^2 = a^2x^2$
+    \item $x = 2\cos t - \cos 2t, \, y = 2\sin t - \sin 2t$
+\end{enumerate}
+}
+\sol
 
+\begin{enumerate}
+\item Перейдем в полярные координаты:
+\begin{align*}
+    x &= r\cos\varphi, \\
+    y &= r\sin\varphi.
+\end{align*}
+Тогда уравнение примет вид:
+\[
+    r^4 = a^2r^2\cos^2\varphi \Rightarrow r = \pm a\cos\varphi, \\
+\]
+Площадь фигуры в полярных координатах равна:
+\[
+    S = \frac{1}{2}\int\limits_{0}^{2\pi}a^2\cos^2\varphi \dl \varphi = \frac{a^2}{2}\int\limits_{0}^{2\pi}\frac{1+\cos 2\varphi}{2}\dl \varphi = \frac{a^2}{4}\left[\varphi + \frac{\sin 2\varphi}{2}\right]_0^{2\pi} = \frac{a^2\pi}{2}.
+\]
+\item Для поиска площади фигуры воспользуемся формулой:
+\[
+    S = \frac{1}{2}\int\limits_{0}^{2\pi}|x(t)y'(t) - x'(t)y(t)|\dl t.
+\] 
+Посчитаем производные:
+\begin{align*}
+    x'(t) &= -2\sin t + 2\sin 2t, \\
+    y'(t) &= 2\cos t - 2\cos 2t.
+\end{align*}
+Тогда:
 
-$$
-\int \frac{dx}{x^2 + a^2} = \frac{1}{a} \arctan \frac{x}{a} + C
-$$
+\begin{align*}
+    S &= \frac{1}{2}\int\limits_{0}^{2\pi}\left(2\cos t-\cos 2t\right)\left(2\cos t - 2\cos 2t\right) - \left(-2\sin t + 2\sin 2t\right)\left(2\sin t - \sin 2t\right)\dl t =\\
+    &= \frac{1}{2}\int\limits_{0}^{2\pi}\left(4\cos^2 t - 4\cos t\cos 2t - 2\cos 2t\cos t + 2\cos^2 2t + 4\sin^2 t - 2\sin t\sin 2t - 4\sin 2t\sin t + 2\sin^2 2t\right)\dl t =\\
+    &= \frac{1}{2}\int\limits_{0}^{2\pi}6-6\cos 2t \cos t-6\sin 2t \sin t \dl t = 3\int\limits_{0}^{2\pi}1\dl t - 3\int\limits_{0}^{2\pi}\cos 2t \cos t \dl t - 3\int\limits_{0}^{2\pi}\sin 2t \sin t \dl t =\\
+    &= 6\pi
+\end{align*}
+\end{enumerate}
+\clm{}{}{\textbf{Ответ:}
+\begin{enumerate}
+    \item $\frac{a^2\pi}{2}$.
+    \item $6\pi$.
+\end{enumerate}
+}
+\qs{}{
+Найти длину кривой, заданной уравнением:
+\begin{enumerate}
+    \item $r = \dfrac{2}{\cos^4(\varphi/4)}$
+    \item $2(y^2+z^2) = x, \, z\cos 2x - y\sin 2x = 0, \, 0 \le x < \pi/4$
+\end{enumerate}
+}
+\sol
+\begin{enumerate}
+\item В полярных координатах длина кривой равна:
+    \begin{align*}
+        L &= \int\limits_{0}^{2\pi}\sqrt{\frac{4}{\cos^8(\varphi/4)} + \dfrac{4\sin^2(\varphi/4)}{\cos^{10}(\varphi/4)}}\dl \varphi =\\
+        &= \int\limits_{0}^{2\pi}\dfrac{2}{\cos^5(\varphi/4)}\dl \varphi = 
+    \end{align*}
+\item Выразим $y$, $z$ через $x$:
+\begin{align*}
 
+\end{align*}
+\end{enumerate}
 \end{document}
