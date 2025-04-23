@@ -1,0 +1,118 @@
+\documentclass{report}
+
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{diffcoeff,amssymb}
+\usepackage{mathtools}
+\usepackage[normalem]{ulem}
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+
+\setcounter{secnumdepth}{0}
+
+\title{\Huge{Матан Лаба, вариант №18}}
+\author{\huge{Григорий Горбушкин, Евгений Турчанин}}
+\date{}
+\begin{document}
+\maketitle
+
+\qs{}{
+    Составьте интегральную сумму для функции $e^{3x}$ на отрезке $[0, 0.5]$
+}
+\noindent Введем равномерное разбиение отрезка $[0, 0.5]$ на $n$ частей, то есть
+\begin{equation}
+    x_k = \frac{k}{2n}, \quad k = 1, \ldots, n.
+\end{equation}
+Тогда интегральная сумма будет иметь вид
+\begin{equation}
+    S_n = \sum_{k=1}^{n} f(x_k) \cdot \Delta x_k = \frac{1}{2n} \sum_{k=1}^{n} e^{\frac{3k}{2n}},
+\end{equation}
+Перепишем сумму для правых прямоугольников, для левых прямоугольников и для средних прямоугольников:
+\begin{equation}
+    S_\text{правая} = \frac{1}{2n} \sum_{k=1}^{n} e^{\frac{3k}{2n}},
+\end{equation}
+
+\begin{equation}
+    S_{\text{левая}} = \frac{1}{2n} \sum_{k=0}^{n-1} e^{\frac{3k}{2n}}
+\end{equation}
+
+\begin{equation}
+    S_{\text{средняя}} = \frac{1}{2n} \sum_{k=1}^{n} e^{3\frac{2k-1}{4n}}
+\end{equation}
+
+\begin{equation}
+    S_{\text{трапеции}} = \frac{1}{4n} \sum_{k=1}^{n} e^{3\frac{k}{2n}}+e^{3\frac{k-1}{2n}} =
+    \frac{1}{4n}\left(e^{\frac{3}{2n}}+1 \right)\sum_{k=1}^{n} e^{\frac{3(k-1)}{2n}}
+\end{equation}
+
+\qs{}{
+Вычислите пределы интегральных сумм при $n \to \infty$.
+}
+
+\begin{enumerate}
+    \item $S_{\text{правая}} = \displaystyle\lim_ {n \to +\infty} \dfrac{3^{\frac{3}{2n}}\cdot(e^{3/2}-1)}{2n(e^{3/2n}-1)} = \dfrac{e^{3/2}-1}{3}$
+    \item $S_{\text{левая}} = \displaystyle\lim_ {n \to +\infty} \dfrac{(e^{3/2}-1)}{2n(e^{3/2n}-1)} = \dfrac{e^{3/2}-1}{3}$
+    \item $S_{\text{средняя}} = \displaystyle\lim_ {n \to +\infty} \dfrac{e^{\frac{3}{4n}}(e^{3/2}-1)}{2n(e^{3/2n}-1)} = \dfrac{e^{3/2}-1}{3}$
+    \item $S_{\text{трапеции}} = \displaystyle\lim_ {n \to +\infty} \dfrac{(e^{3/2n}+1)(e^{3/2}-1)}{4n(e^{3/2n}-1)} = \dfrac{e^{3/2}-1}{3}$
+
+\end{enumerate}
+\qs{}{
+Докажите, что интеграл существует
+}
+\noindent Функция $e^{3x}$ непрерывна на отрезке $[0, 0.5]$, значит, по теореме о существовании интеграла Римана, интеграл существует.
+
+\qs{}{
+Проверьте вычисление при помощи формулы Ньютона-Лейбница
+}
+\[
+\int _0^{0.5} e^{3x} \, dx = \left[ \frac{e^{3x}}{3} \right]_0^{0.5} = \frac{e^{3/2}-1}{3}
+\]
+\qs{}{
+Найдите погрешность оценки, сравните ее с теоретической погрешностью
+}
+\noindent Докажем формулы для погрешности:
+\begin{enumerate}
+    \item Для правых прямоугольников покажем, что $|R_n| \le \displaystyle \max_{x\in[a, b]}|f'(x)|\dfrac{(b-a)^2}{2n}$.\\
+        По Тейлору, для $x_k \in [x_{k}, x_{k+1}]$ найдется такое $\xi_k \in (x_{k}, x_{k+1})$, что $f(x) = f(x_{k})+f'(\xi_k)(x-x_{k})$, тогда
+\[
+    \int _{x_{k}}^{x_{k+1}} f(x) \, \dl x = f(x_{k})(x_{k+1}-x_{k}) + \int _{x_{k}}^{x_{k+1}} f'(\xi_k)(x-x_{k}) \, \dl x
+\]
+отсюда
+\[
+    \left|\int_{x_{k}}^{x_{k+1}}f \dl x - f(x_{k})\Delta x_k\right| \le \max_{\Delta_k} |f'(\xi_k)| \cdot \frac{(\Delta x_k)^2}{2}
+\]
+Если $\Delta x_k = (b-a)/n$, то
+\[
+    \left|\int_{a}^{b}f \dl x - \sum_{k=1}^{n} f(x_{k})\Delta x_k\right| \le \sum_{k=1}^n \max_{\Delta_k} |f'(\xi_k)| \cdot \frac{(b-a)^2}{2n^2} \le \max_{[a, b]}|f'(x)|\dfrac{(b-a)^2}{2n}
+\]
+
+\item Для средних прямоугольников, покажем что $|R_n| \le \max_{x\in [a, b]}|f''(x)|\dfrac{(b-a)^3}{24n^2}$.\\
+Опять разложим в ряд Тейлора, но уже в окресности средний точки, те вокруг $\dfrac{x_k+x_{k-1}}{2}$
+\[
+    \int_{x_{k-1}}^{x_k} f(x) \, \dl x = f(x_{\text{ср}})(x_k-x_{k-1}) + \int_{x_{k-1}}^{x_k} f'(x_{\text{ср}})(x-x_{\text{cр}}) \dl x + \int_{x_{k-1}}^{x_k} \dfrac{f''(\xi_k)(x-x_{\text{ср}})^2}{2} \, \dl x
+\]
+Попробуем обосновать разложение до второго порядка \sout{кроме фразы, что в формуле есть вторая производная}. Видно, что второй член зануляется (хотя бы из соображения симметрии), поэтому чтобы вычислить погрешность нужно раскладываться до 2-го порядка.
+\[
+    \left|\int_{x_{k-1}}^{x_k} f(x) \, \dl x - f(x_{\text{ср}})(x_k-x_{k-1})\right| \le \max_{\Delta_k} |f''(\xi_k)| \cdot \frac{(x_k-x_{k-1})^3}{24}
+\]
+Если $\Delta x_k = (b-a)/n$, то
+\[
+    \left|\int_{a}^{b} f(x) \, \dl x - \sum_{k=1}^{n} f(x_{\text{ср}})\Delta x_k\right| \le \sum_{k=1}^{n} \max_{\Delta_k} |f''(\xi_k)| \cdot \frac{(x_k-x_{k-1})^3}{24} \le \max_{[a, b]}|f''(x)|\dfrac{(b-a)^3}{24n^2}
+\]
+\item Для трапеций, покажем что $|R_n| \le \max_{x\in [a, b]}|f''(x)|\dfrac{(b-a)^3}{12n^2}$.\\
+    Разложим в ряд Тейлора в окрестности $x_{k-1}$
+\[
+    \int_{x_{k-1}}^{x_k} f(x) \, \dl x = f(x_{k-1})(x_k-x_{k-1}) + \int_{x_{k-1}}^{x_k} \dfrac{f(x_k)-f(x_{k-1})}{\Delta x_k}(x-x_{k-1}) \dl x + \int_{x_{k-1}}^{x_k} \dfrac{f''(\xi_k)(x-x_{k-1})^2}{2} \, \dl x
+\]
+\[
+\left|\int_{x_{k-1}}^{x_k} f(x) \, \dl x - \dfrac{f(x_k)+f(x_{k-1})}{2}(x_k-x_{k-1})\right| \le \max_{\Delta_k} |f''(\xi_k)| \cdot \frac{(x_k-x_{k-1})^3}{12}
+\]
+\end{enumerate}
+
+\end{document}
