@@ -95,24 +95,65 @@
 \item Для средних прямоугольников, покажем что $|R_n| \le \max_{x\in [a, b]}|f''(x)|\dfrac{(b-a)^3}{24n^2}$.\\
 Опять разложим в ряд Тейлора, но уже в окресности средний точки, те вокруг $\dfrac{x_k+x_{k-1}}{2}$
 \[
-    \int_{x_{k-1}}^{x_k} f(x) \, \dl x = f(x_{\text{ср}})(x_k-x_{k-1}) + \int_{x_{k-1}}^{x_k} f'(x_{\text{ср}})(x-x_{\text{cр}}) \dl x + \int_{x_{k-1}}^{x_k} \dfrac{f''(\xi_k)(x-x_{\text{ср}})^2}{2} \, \dl x
+    \int_{x_{k-1}}^{x_k} f(x) \, \dl x = f(x_{\text{ср}})(x_k-x_{k-1}) + \int_{x_{k-1}}^{x_k} f'(x_{\text{ср}})(x-x_{\text{cр}}) \dl x + \int_{x_{k-1}}^{x_k} \dfrac{f''(\xi_k)(x-x_{\text{ср}})^2}{2} \, \dl x.
 \]
 Попробуем обосновать разложение до второго порядка \sout{кроме фразы, что в формуле есть вторая производная}. Видно, что второй член зануляется (хотя бы из соображения симметрии), поэтому чтобы вычислить погрешность нужно раскладываться до 2-го порядка.
 \[
-    \left|\int_{x_{k-1}}^{x_k} f(x) \, \dl x - f(x_{\text{ср}})(x_k-x_{k-1})\right| \le \max_{\Delta_k} |f''(\xi_k)| \cdot \frac{(x_k-x_{k-1})^3}{24}
+    \left|\int_{x_{k-1}}^{x_k} f(x) \, \dl x - f(x_{\text{ср}})(x_k-x_{k-1})\right| \le \max_{\Delta_k} |f''(\xi_k)| \cdot \frac{(x_k-x_{k-1})^3}{24}.
 \]
 Если $\Delta x_k = (b-a)/n$, то
 \[
-    \left|\int_{a}^{b} f(x) \, \dl x - \sum_{k=1}^{n} f(x_{\text{ср}})\Delta x_k\right| \le \sum_{k=1}^{n} \max_{\Delta_k} |f''(\xi_k)| \cdot \frac{(x_k-x_{k-1})^3}{24} \le \max_{[a, b]}|f''(x)|\dfrac{(b-a)^3}{24n^2}
+    \left|\int_{a}^{b} f(x) \, \dl x - \sum_{k=1}^{n} f(x_{\text{ср}})\Delta x_k\right| \le \sum_{k=1}^{n} \max_{\Delta_k} |f''(\xi_k)| \cdot \frac{(x_k-x_{k-1})^3}{24} \le \max_{[a, b]}|f''(x)|\dfrac{(b-a)^3}{24n^2}.
 \]
 \item Для трапеций, покажем что $|R_n| \le \max_{x\in [a, b]}|f''(x)|\dfrac{(b-a)^3}{12n^2}$.\\
     Разложим в ряд Тейлора в окрестности $x_{k-1}$
+
 \[
-    \int_{x_{k-1}}^{x_k} f(x) \, \dl x = f(x_{k-1})(x_k-x_{k-1}) + \int_{x_{k-1}}^{x_k} \dfrac{f(x_k)-f(x_{k-1})}{\Delta x_k}(x-x_{k-1}) \dl x + \int_{x_{k-1}}^{x_k} \dfrac{f''(\xi_k)(x-x_{k-1})^2}{2} \, \dl x
+f(x_k) = f(x_{k-1})+f'(x_{k-1})(x_k-x_{k-1})+\dfrac{f''(\xi_k)(x_k-x_{k-1})^2}{2},
 \]
+теперь \sout{подгоним} подстравим это в формулу для трапеции
+
 \[
-\left|\int_{x_{k-1}}^{x_k} f(x) \, \dl x - \dfrac{f(x_k)+f(x_{k-1})}{2}(x_k-x_{k-1})\right| \le \max_{\Delta_k} |f''(\xi_k)| \cdot \frac{(x_k-x_{k-1})^3}{12}
+\dfrac{x_k-x_{k-1}}{2}(f(x_k)+f(x_{k-1})) = \dfrac{x_k-x_{k-1}}{2}\left(2f(x_{k-1})+f'(x_{k-1})(x_k-x_{k-1})+\dfrac{f''(\xi_k)(x_k-x_{k-1})^2}{2})\right),
 \]
+распишем интеграл в его \sout{prime} форме
+\[
+\int _{x_{k-1}}^{x_k} f(x) \, \dl x = f(x_{k-1})\Delta x_k + \int _{x_{k-1}}^{x_k} f'(x_{k-1})(x-x_{k-1}) \, \dl x + \int _{x_{k-1}}^{x_k} \dfrac{f''(\xi_k^*)(x-x_{k-1})^2}{2} \, \dl x.
+\]
+Тогда их разность будет равна
+\[
+    \left|\int_{x_{k-1}}^{x_k} f(x) \, \dl x - \dfrac{x_k-x_{k-1}}{2}(f(x_k)+f(x_{k-1}))\right| = \left|f''(\xi_k^*)\dfrac{x_k-x_{k-1}}{6} - f''(\xi_k)\dfrac{x_k-x_{k-1}}{4}\right|
+\]
+тогда если $\Delta x_k = (b-a)/n$, то
+\[
+    \left|\int_{a}^{b} f(x) \, \dl x - \sum_{k=1}^{n} \dfrac{x_k-x_{k-1}}{2}(f(x_k)+f(x_{k-1}))\right| \le \max_{\xi \in [a, b]}|f''(\xi)|\dfrac{(b-a)^3}{12n^2}.
+\]
+
 \end{enumerate}
+
+\qs{}{
+Вывести формулу для оценки погрешности.
+}
+\begin{enumerate}
+\item
+\noindent Погрешность для правых/левых прямоугольников
+\[
+    |R_n| \le \max_{x\in[a, b]}|f'(x)|\dfrac{(b-a)^2}{2n} = \max_{x\in[0, 0.5]}|3e^{3x}|\dfrac{0.5^2}{2n} = \dfrac{3e^{1.5}}{8n}
+\]
+
+\item 
+\noindent Погрешность для средних прямоугольников
+
+\[
+|R_n| \le \max_{x\in [a, b]}|f''(x)|\dfrac{(b-a)^3}{24n^2} = \max_{x\in[0, 0.5]}|9e^{3x}|\dfrac{0.5^3}{24n^2} = \dfrac{9e^{1.5}}{192n^2}
+\]
+\item 
+\noindent Погрешность для трапеций
+\[
+|R_n| \le \max_{x\in [a, b]}|f''(x)|\dfrac{(b-a)^3}{12n^2} = \max_{x\in[0, 0.5]}|9e^{3x}|\dfrac{0.5^3}{12n^2} = \dfrac{9e^{1.5}}{96n^2}
+\]
+
+\end{enumerate}
+\dots дальше Григорий
 
 \end{document}

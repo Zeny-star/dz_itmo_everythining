@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1745317874.62205 "math_lab.tex" "math_lab.pdf" "math_lab" 1745317876.76971 0
+["pdflatex"] 1745771305.52703 "math_lab.tex" "math_lab.pdf" "math_lab" 1745771307.64751 0
   "/Users/evgenijturcanin/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/labx1000.tfm" 1743738763.33144 3300 6abb8e321227ead2a8e929e5abc72bd3 ""
   "/Users/evgenijturcanin/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/larm0500.tfm" 1743738766.51321 3252 bc0f8cc163ba94bbce20e59f671a255d ""
   "/Users/evgenijturcanin/.texlive2025/texmf-var/fonts/tfm/lh/lh-t2a/larm0700.tfm" 1743738765.00091 3256 b15a2ce2310c0038b96c5235b038f0eb ""
@@ -283,8 +283,8 @@
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1741388039 3346140 981dae4097bc43850a521b8b1e36e95f ""
   "letterfonts.tex" 1729858199 8702 ef32ca12e97530ef5734ca4adcb1f6b1 ""
   "macros.tex" 1729858199 3402 5ff07786523a7d2bdff069401d7f79ea ""
-  "math_lab.aux" 1745317876.63158 422 96253d54b0c11f2407ef2a043632b3ec "pdflatex"
-  "math_lab.tex" 1745317873.21274 6106 5d312b2459c90abe19c386470fcb98b1 ""
+  "math_lab.aux" 1745771307.51516 422 5db6771cf4cc3bb29a77c882a8bc3536 "pdflatex"
+  "math_lab.tex" 1745771304.93654 7643 c95de8c294a3ddfffd6652b54f8ee73c ""
   "preamble.tex" 1729858199 20038 dd33acc655fd8d9a3eebf8b2d4ce056b ""
   (generated)
   "math_lab.aux"

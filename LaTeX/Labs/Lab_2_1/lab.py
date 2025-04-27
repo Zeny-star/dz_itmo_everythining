@@ -62,7 +62,6 @@ A = slope
 C = intercept
 
 t_abs_zero = -C / A
-
 n = len(t)
 x_mean = np.mean(t)
 S_xx = np.sum((t - x_mean)**2)
@@ -76,3 +75,72 @@ plt.plot(t, a)
 plt.ylabel('a')
 plt.xlabel('t')
 plt.show()
+
+p_50 = np.array([p_1[0], p_2[0], p_3[0], p_4[0], p_5[0]])
+p_90 = np.array([p_1[4], p_2[4], p_3[4], p_4[4], p_5[4]])
+p_120 = np.array([p_1[7], p_2[7], p_3[7], p_4[7], p_5[7]])
+p_50_kPa = p_50 / 1000
+p_90_kPa = p_90 / 1000
+p_120_kPa = p_120 / 1000
+def linear_least_squares(x, y):
+    """
+    Performs linear least squares fit y = Ax + C.
+    Uses formulas from the appendix (Eq 16-19).
+    Returns A, C, delta_A, delta_C
+    """
+    n = len(x)
+    if n < 3:
+        print(f"Warning: Only {n} points provided. Cannot calculate uncertainty reliably.")
+        A = np.polyfit(x, y, 1)[0]
+        C = np.polyfit(x, y, 1)[1]
+        return A, C, np.nan, np.nan
+    x_bar = np.mean(x)
+    y_bar = np.mean(y)
+    D = np.sum((x - x_bar)**2)
+    if D == 0: return np.nan, np.nan, np.nan, np.nan
+    A = np.sum((x - x_bar) * y) / D
+    C = y_bar - A * x_bar
+    residuals = y - (A * x + C)
+    E = np.sum(residuals**2) / (n - 2)
+    delta_A = np.sqrt(E / D)
+    delta_C = np.sqrt(E * (1/n + x_bar**2 / D))
+    return A, C, delta_A, delta_C
+
+a_50, c_50_Pa, _, _ = linear_least_squares(t, p_50)
+a_90, c_90_Pa, _, _ = linear_least_squares(t, p_90)
+a_120, c_120_Pa, _, _ = linear_least_squares(t, p_120)
+
+t_line = np.linspace(min(t) - 5, max(t) + 5, 100)
+
+p_line_50_kPa = (a_50 * t_line + c_50_Pa) / 1000
+p_line_90_kPa = (a_90 * t_line + c_90_Pa) / 1000
+p_line_120_kPa = (a_120 * t_line + c_120_Pa) / 1000
+
+plt.figure(figsize=(10, 6))
+colors = plt.cm.viridis(np.linspace(0, 0.8, 3)) # Example colormap
+
+plt.scatter(t, p_50_kPa, label='V = 50 mL (Эксп. точки)', color=colors[0], s=50, zorder=3)
+plt.scatter(t, p_90_kPa, label='V = 90 mL (Эксп. точки)', color=colors[1], s=50, zorder=3)
+plt.scatter(t, p_120_kPa, label='V = 120 mL (Эксп. точки)', color=colors[2], s=50, zorder=3)
+
+plt.plot(t_line, p_line_50_kPa, '--', label='V = 50 mL (МНК)', color=colors[0], linewidth=1.5, zorder=2)
+plt.plot(t_line, p_line_90_kPa, '--', label='V = 90 mL (МНК)', color=colors[1], linewidth=1.5, zorder=2)
+plt.plot(t_line, p_line_120_kPa, '--', label='V = 120 mL (МНК)', color=colors[2], linewidth=1.5, zorder=2)
+plt.show()
+
+t_vol = np.array([-c_50_Pa / a_50, -c_90_Pa / a_90, -c_120_Pa / a_120])
+v_a = np.array([1/50, 1/90, 1/120])
+D = 0
+for i in v_a:
+    D += (i - np.mean(v_a))**2
+
+for i in range(len(v_a)):
+    A += 1/D*(v_a[i] - np.mean(v_a))*t_vol[i]
+C = np.mean(v) - A * np.mean(t_vol)
+plt.plot(t_vol, v_a, 'bo', label='Экспериментальные точки', color = 'red')
+plt.plot(-A*t_vol + C, v_a, 'r-', label=f'МНК', color = 'blue')
+plt.show()
+
+
+
+
