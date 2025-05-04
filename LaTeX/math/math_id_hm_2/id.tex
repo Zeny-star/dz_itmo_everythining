@@ -86,13 +86,67 @@
 \sol
 \begin{enumerate}
 \item В полярных координатах длина кривой равна:
+    \[
+        L = \int\limits_{a}^{b}\sqrt{r^2 + r'_{\phi}^2}\dl \varphi
+    \]
     \begin{align*}
         L &= \int\limits_{0}^{2\pi}\sqrt{\frac{4}{\cos^8(\varphi/4)} + \dfrac{4\sin^2(\varphi/4)}{\cos^{10}(\varphi/4)}}\dl \varphi =\\
-        &= \int\limits_{0}^{2\pi}\dfrac{2}{\cos^5(\varphi/4)}\dl \varphi = 
+          &= \int\limits_{0}^{2\pi}\dfrac{2}{\cos^5(\varphi/4)}\dl \varphi =8\int\limits_0^{2\pi}\dfrac{\dl (\varphi/4)}{\cos^5(\varphi/4)},
     \end{align*}
-\item Выразим $y$, $z$ через $x$:
-\begin{align*}
+    возьмем интеграл по частям, $u = \dfrac{1}{\cos^3(t)}, \dl v = \dfrac{\dl t}{\cos^2(t)}$
 
-\end{align*}
+\[
+    \int \dfrac{\dl t}{\cos^5(t)} = \dfrac{1}{\cos^3(t)}\tg(t) - \int \dfrac{3\tan^2(t)}{\cos^3(t)}\dl t = \dfrac{1}{\cos^3(t)}\tg(t) - \int \dfrac{3}{\cos^5t}\dl t+\int\dfrac{3}{\cos^3t}\dl t,
+\]
+по аналогии для $\dfrac{1}{\cos^3(t)}$:
+\[
+    \int \dfrac{1}{\cos^3(t)}\dl t = \dfrac{1}{\cos(t)}\tg(t) - \int \dfrac{1}{\cos^3t}\dl t+\int \dfrac{\dl t}{\cos t},
+\]
+ну а $\int \dfrac{\dl t}{\cos t} = \dfrac{1}{2}\ln \left|\dfrac{\sin t+1}{\sin t-1}\right|$, тогда
+\[
+    \int \dfrac{\dl t}{\cos^5 t} = \dfrac{\tg t}{4\cos^3 5}+\dfrac{\tg t}{8\cos t}+\dfrac{1}{16}\ln \left|\dfrac{\sin t+1}{\sin t -1}\right|,
+\]
+тогда в подстановке от $0$ до $2\pi$
+\[
+\int \limits_0^{2\pi}\dfrac{\dl \varphi/4}{\cos^5 \varphi/4} = \dfrac{1}{4}\left[\dfrac{\tg \varphi/4}{4\cos^3 \varphi/4}+\dfrac{\tg \varphi/4}{8\cos \varphi/4}+\dfrac{1}{16}\ln \left|\dfrac{\sin \varphi/4+1}{\sin \varphi/4-1}\right|\right]_0^{2\pi} = \infty,
+\]
+получается, что длина кривой бесконечна \sout{не предел}
+\item Выразим $y$, $z$ через $x$:
+\[
+z\cos 2x - y\sin 2x = 0 \Rightarrow z(\cos^2 x - \sin^2 x) - 2y\sin x\cos x = 0 \Rightarrow z(1-\tg^2 x) - 2y\tg x = 0,
+\]
+отсюда 
+
+\[
+    z = \dfrac{2y\tg x}{1-\tg^2 x},
+\]
+с другой стороны
+
+\[
+    z  = \sqrt{\dfrac{x-2y^2}{2}} \Rightarrow,
+\]
+объеденяем и получаем 
+
+\[
+    \dfrac{4y^2\tg^2 x}{1-2\tg^2 x+\tg^4 x} = \dfrac{x-2y^2}{2} \Rightarrow y^2 = \dfrac{x(1-2\tg^2 x+\tg^4 x)}{2(1+2\tg^2 x+\tg^4 x)} \Rightarrow y = \dfrac{\sqrt{x}(1-\tg^2 x)}{\sqrt{2}(1+\tg^2 x)},
+\]
+тогда 
+\[
+    z = \sqrt{\dfrac{x-\dfrac{x(1-\tg^2 x)^2}{(1+\tg^2 x)^2}}{2}} = \sqrt{\dfrac{4x\tg^2 x}{2}} = \sqrt{2x}\tg x.
+\]
+Для вычисления длины кривой есть формула
+\[
+L = \int\limits_{a}^{b}\sqrt{1+\left(\frac{\dl y}{\dl x}\right)^2 + \left(\frac{\dl z}{\dl x}\right)^2}\dl x,
+\]
+подставим производные
+\[
+L = \int\limits_{0}^{\pi/4}
+\]
+
 \end{enumerate}
+
+\qs{}{
+
+}
+
 \end{document}
