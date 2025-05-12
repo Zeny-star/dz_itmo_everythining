@@ -22,7 +22,8 @@
 }
 
 
-\title{\Huge{Матан инд}\\ Вариант №18}
+
+\title{\Huge{Матан идз}\\ Вариант №18}
 
 \author{\huge{Евгений Турчанин}}
 
@@ -123,7 +124,7 @@ z\cos 2x - y\sin 2x = 0 \Rightarrow z(\cos^2 x - \sin^2 x) - 2y\sin x\cos x = 0 
 с другой стороны
 
 \[
-    z  = \sqrt{\dfrac{x-2y^2}{2}} \Rightarrow,
+    z  = \sqrt{\dfrac{x-2y^2}{2}},
 \]
 объеденяем и получаем 
 
@@ -140,13 +141,37 @@ L = \int\limits_{a}^{b}\sqrt{1+\left(\frac{\dl y}{\dl x}\right)^2 + \left(\frac{
 \]
 подставим производные
 \[
-L = \int\limits_{0}^{\pi/4}
+    L = \int\limits_{0}^{\pi/4} \sqrt{1+}
 \]
 
 \end{enumerate}
 
 \qs{}{
-
+Исследовать на сходимость интеграл:
+\begin{enumerate}
+    \item $\displaystyle\int\limits_{1}^{\infty} x\left|\ln \cos \dfrac{1}{x}\right|\,\dl x$
+    \item $\displaystyle\int\limits_{0}^{\infty}(e^x+x)\sin e^{2x}\, \dl x$
+    \item $\displaystyle\int\limits_{0}^{1}(x-\sin x)^{-1} \dl x$
+    \item $\displaystyle\int\limits_0^1 \dfrac{\sin(\pi/x)}{x(1-x)^{3/2}}\,\dl x$
+\end{enumerate}
 }
+\sol
+\begin{enumerate}
+    \item 
+      Покажем, что интеграл расходится.
+    \[
+        \int\limits_{0}^{\infty} x\left|\ln \cos \dfrac{1}{x}\right|\, \dl x = \int\limits_{0}^{\infty} x\left|\ln\left(1-\dfrac{1}{2x^2}+O\left(\dfrac{1}{2x^5}\right)\right)\right|\, \dl x = \int\limits_{0}^{\infty} x\left(-\dfrac{1}{2x^2}+O\left(\dfrac{1}{2x^5}\right)-\dfrac{1}{8x^4}\right)\, \dl x,
+    \]
+    Понятно, что этот интеграл не сход.  
+\item 
+    Проверим на абс. сход.
+    \[
+        \int\limits_{0}^{\infty}(e^x+x)\sin e^{2x}\, \dl x.
+    \]
+    Для этого сделаем замену $t = e^{2x}$ и навесим модуль
+    \[
+\int\limits_{1}^{\infty} \dfrac{1}{2}\left(\sqrt{t}+\dfrac{\ln t}{2}\right)\left|\sin t\right|\dfrac{\dl t}{t}\,
+    \]
+    \end{enumerate}
 
 \end{document}

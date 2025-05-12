@@ -56,27 +56,27 @@ def update(val):
             heights = f(xi)
             integral_sum = np.sum(heights * dx)
             ax.bar(xi, heights, width=dx, alpha=0.5, align='edge', edgecolor='black', color=color)
-            ax.plot(xi, heights, 'ro', markersize=3)
+            ax.plot(xi, heights, 'black', markersize=3)
             legend_handles.append(Patch(facecolor=color, alpha=0.5, edgecolor='black', label='Прямоугольники'))
-            legend_handles.append(plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='r', markersize=3, label='Точки оснащения'))
+            legend_handles.append(plt.Line2D([0], [0], marker='o', color='black', markerfacecolor='black', markersize=3, label='Точки оснащения'))
 
         elif method == 'right':
             xi = x[1:]
             heights = f(xi)
             integral_sum = np.sum(heights * dx)
             ax.bar(x[:-1], heights, width=dx, alpha=0.5, align='edge', edgecolor='black', color=color)
-            ax.plot(xi, heights, 'ro', markersize=3)
+            ax.plot(xi, heights, 'black', markersize=3)
             legend_handles.append(Patch(facecolor=color, alpha=0.5, edgecolor='black', label='Прямоугольники'))
-            legend_handles.append(plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='r', markersize=3, label='Точки оснащения'))
+            legend_handles.append(plt.Line2D([0], [0], marker='o', color='black', markerfacecolor='black', markersize=3, label='Точки оснащения'))
 
         elif method == 'midpoint':
             xi = (x[:-1] + x[1:]) / 2
             heights = f(xi)
             integral_sum = np.sum(heights * dx)
             ax.bar(x[:-1], heights, width=dx, alpha=0.5, align='edge', edgecolor='black', color=color)
-            ax.plot(xi, heights, 'ro', markersize=3)
+            ax.plot(xi, heights, 'black', markersize=3)
             legend_handles.append(Patch(facecolor=color, alpha=0.5, edgecolor='black', label='Прямоугольники'))
-            legend_handles.append(plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='r', markersize=3, label='Точки оснащения'))
+            legend_handles.append(plt.Line2D([0], [0], marker='o', color='black', markerfacecolor='black', markersize=3, label='Точки оснащения'))
 
         elif method == 'trapezoid':
             y_endpoints = f(x)
@@ -85,9 +85,9 @@ def update(val):
                  verts = [(x[j], 0), (x[j], y_endpoints[j]), (x[j+1], y_endpoints[j+1]), (x[j+1], 0)]
                  poly = plt.Polygon(verts, facecolor=color, alpha=0.5, edgecolor='black')
                  ax.add_patch(poly)
-            ax.plot(x, y_endpoints, 'ro', markersize=3)
+            ax.plot(x, y_endpoints, 'black', markersize=3)
             legend_handles.append(Patch(facecolor=color, alpha=0.5, edgecolor='black', label='Трапеции'))
-            legend_handles.append(plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='r', markersize=3, label='Точки оснащения'))
+            legend_handles.append(plt.Line2D([0], [0], marker='o', color='black', markerfacecolor='black', markersize=3, label='Точки оснащения'))
 
 
         plot_title = f'{method_titles[method]}, n={n}\nСумма = {integral_sum:.6f}'

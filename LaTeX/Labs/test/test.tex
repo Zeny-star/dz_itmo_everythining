@@ -1,0 +1,123 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\title{Нахождение длины кривой}
+\date{}
+
+\begin{document}
+\maketitle
+
+Даны уравнения, задающие кривую:
+\begin{align}
+    2(y^2 + z^2) &= x \label{eq:1} \\
+    z \cos(2x) - y \sin(2x) &= 0 \label{eq:2} \\
+    0 \le x &< \pi/4 \label{eq:3}
+\end{align}
+Требуется найти длину этой кривой.
+
+\section*{1. Параметризация кривой}
+Из уравнения \eqref{eq:1} получаем:
+\[ y^2 + z^2 = \frac{x}{2} \]
+Поскольку $x \ge 0$, мы можем положить $R(x) = \sqrt{\frac{x}{2}}$. Тогда $y^2 + z^2 = R(x)^2$.
+Параметризуем $y$ и $z$ с помощью угла $\theta(x)$:
+\begin{align*}
+    y(x) &= R(x) \cos(\theta(x)) = \sqrt{\frac{x}{2}} \cos(\theta(x)) \\
+    z(x) &= R(x) \sin(\theta(x)) = \sqrt{\frac{x}{2}} \sin(\theta(x))
+\end{align*}
+Подставим эти выражения в уравнение \eqref{eq:2}:
+\[ \sqrt{\frac{x}{2}} \sin(\theta(x)) \cos(2x) - \sqrt{\frac{x}{2}} \cos(\theta(x)) \sin(2x) = 0 \]
+Если $x > 0$, то $\sqrt{\frac{x}{2}} \neq 0$. Разделив на $\sqrt{\frac{x}{2}}$, получим:
+\[ \sin(\theta(x)) \cos(2x) - \cos(\theta(x)) \sin(2x) = 0 \]
+Используя формулу синуса разности углов $\sin(A-B) = \sin A \cos B - \cos A \sin B$, получаем:
+\[ \sin(\theta(x) - 2x) = 0 \]
+Это означает, что $\theta(x) - 2x = n\pi$ для некоторого целого числа $n$.
+Следовательно, $\theta(x) = 2x + n\pi$.
+
+Подставляем $\theta(x)$ обратно в выражения для $y(x)$ и $z(x)$:
+\begin{align*}
+    y(x) &= \sqrt{\frac{x}{2}} \cos(2x + n\pi) \\
+    z(x) &= \sqrt{\frac{x}{2}} \sin(2x + n\pi)
+\end{align*}
+Рассмотрим два случая для $n$:
+\begin{itemize}
+    \item Если $n$ четное ($n = 2k$ для целого $k$):
+    $\cos(2x + 2k\pi) = \cos(2x)$ и $\sin(2x + 2k\pi) = \sin(2x)$.
+    Тогда первая ветвь кривой:
+    \[ y_1(x) = \sqrt{\frac{x}{2}} \cos(2x), \quad z_1(x) = \sqrt{\frac{x}{2}} \sin(2x) \]
+    \item Если $n$ нечетное ($n = 2k+1$ для целого $k$):
+    $\cos(2x + (2k+1)\pi) = -\cos(2x)$ и $\sin(2x + (2k+1)\pi) = -\sin(2x)$.
+    Тогда вторая ветвь кривой:
+    \[ y_2(x) = -\sqrt{\frac{x}{2}} \cos(2x), \quad z_2(x) = -\sqrt{\frac{x}{2}} \sin(2x) \]
+\end{itemize}
+Кривая состоит из двух симметричных ветвей. Длина каждой ветви одинакова. Рассчитаем длину одной ветви (например, первой) и умножим на 2.
+Параметрическое представление одной ветви кривой: $\vec{r}(x) = (x, y_1(x), z_1(x))$. Для удобства далее $y(x) = y_1(x)$ и $z(x) = z_1(x)$.
+\[ y(x) = \sqrt{\frac{x}{2}} \cos(2x), \quad z(x) = \sqrt{\frac{x}{2}} \sin(2x) \]
+
+\section*{2. Вычисление производных}
+Нам нужны производные $\frac{dy}{dx}$ и $\frac{dz}{dx}$.
+Пусть $f(x) = \sqrt{\frac{x}{2}} = \frac{1}{\sqrt{2}} x^{1/2}$. Тогда $f'(x) = \frac{1}{\sqrt{2}} \cdot \frac{1}{2} x^{-1/2} = \frac{1}{2\sqrt{2x}}$.
+\begin{align*}
+    \frac{dy}{dx} &= \frac{d}{dx} \left( \sqrt{\frac{x}{2}} \cos(2x) \right) = f'(x)\cos(2x) + f(x)(-\sin(2x) \cdot 2) \\
+    &= \frac{\cos(2x)}{2\sqrt{2x}} - 2\sqrt{\frac{x}{2}}\sin(2x) = \frac{\cos(2x)}{2\sqrt{2x}} - \sqrt{2x}\sin(2x)
+\end{align*}
+\begin{align*}
+    \frac{dz}{dx} &= \frac{d}{dx} \left( \sqrt{\frac{x}{2}} \sin(2x) \right) = f'(x)\sin(2x) + f(x)(\cos(2x) \cdot 2) \\
+    &= \frac{\sin(2x)}{2\sqrt{2x}} + 2\sqrt{\frac{x}{2}}\cos(2x) = \frac{\sin(2x)}{2\sqrt{2x}} + \sqrt{2x}\cos(2x)
+\end{align*}
+
+\section*{3. Вычисление элемента длины дуги}
+Найдем сумму квадратов производных:
+\begin{align*}
+    \left(\frac{dy}{dx}\right)^2 &= \left(\frac{\cos(2x)}{2\sqrt{2x}} - \sqrt{2x}\sin(2x)\right)^2 \\
+    &= \frac{\cos^2(2x)}{8x} - 2 \cdot \frac{\cos(2x)}{2\sqrt{2x}} \cdot \sqrt{2x}\sin(2x) + ( \sqrt{2x}\sin(2x) )^2 \\
+    &= \frac{\cos^2(2x)}{8x} - \cos(2x)\sin(2x) + 2x\sin^2(2x)
+\end{align*}
+\begin{align*}
+    \left(\frac{dz}{dx}\right)^2 &= \left(\frac{\sin(2x)}{2\sqrt{2x}} + \sqrt{2x}\cos(2x)\right)^2 \\
+    &= \frac{\sin^2(2x)}{8x} + 2 \cdot \frac{\sin(2x)}{2\sqrt{2x}} \cdot \sqrt{2x}\cos(2x) + ( \sqrt{2x}\cos(2x) )^2 \\
+    &= \frac{\sin^2(2x)}{8x} + \sin(2x)\cos(2x) + 2x\cos^2(2x)
+\end{align*}
+Суммируя:
+\begin{align*}
+    \left(\frac{dy}{dx}\right)^2 + \left(\frac{dz}{dx}\right)^2 &= \frac{\cos^2(2x) + \sin^2(2x)}{8x} + 2x(\sin^2(2x) + \cos^2(2x)) \\
+    &= \frac{1}{8x} + 2x
+\end{align*}
+Элемент длины дуги $ds$ для кривой, заданной функциями $y(x)$ и $z(x)$, вычисляется по формуле:
+\[ ds = \sqrt{1 + \left(\frac{dy}{dx}\right)^2 + \left(\frac{dz}{dx}\right)^2} dx \]
+Тогда:
+\[ ds = \sqrt{1 + \frac{1}{8x} + 2x} dx = \sqrt{\frac{8x + 1 + 16x^2}{8x}} dx = \sqrt{\frac{(4x+1)^2}{8x}} dx \]
+Поскольку $0 \le x < \pi/4$, то $4x+1 > 0$, поэтому $|4x+1| = 4x+1$.
+\[ ds = \frac{4x+1}{\sqrt{8x}} dx = \frac{4x+1}{2\sqrt{2}\sqrt{x}} dx \]
+
+\section*{4. Интегрирование для нахождения длины одной ветви}
+Длина одной ветви $L_1$ вычисляется как интеграл от $x=0$ до $x=\pi/4$:
+\[ L_1 = \int_0^{\pi/4} \frac{4x+1}{2\sqrt{2}\sqrt{x}} dx = \frac{1}{2\sqrt{2}} \int_0^{\pi/4} \left(\frac{4x}{\sqrt{x}} + \frac{1}{\sqrt{x}}\right) dx \]
+\[ L_1 = \frac{1}{2\sqrt{2}} \int_0^{\pi/4} (4x^{1/2} + x^{-1/2}) dx \]
+Интегрируем:
+\[ \int (4x^{1/2} + x^{-1/2}) dx = 4\frac{x^{3/2}}{3/2} + \frac{x^{1/2}}{1/2} + C = \frac{8}{3}x^{3/2} + 2x^{1/2} + C \]
+Вычисляем определенный интеграл (интеграл является несобственным в точке $x=0$, но он сходится):
+\begin{align*}
+    L_1 &= \frac{1}{2\sqrt{2}} \left[ \frac{8}{3}x^{3/2} + 2x^{1/2} \right]_0^{\pi/4} \\
+    &= \frac{1}{2\sqrt{2}} \left( \left(\frac{8}{3}\left(\frac{\pi}{4}\right)^{3/2} + 2\left(\frac{\pi}{4}\right)^{1/2}\right) - \left(\frac{8}{3}(0)^{3/2} + 2(0)^{1/2}\right) \right) \\
+    &= \frac{1}{2\sqrt{2}} \left( \frac{8}{3} \frac{\pi\sqrt{\pi}}{4^{3/2}} + 2\frac{\sqrt{\pi}}{4^{1/2}} \right) \\
+    &= \frac{1}{2\sqrt{2}} \left( \frac{8}{3} \frac{\pi\sqrt{\pi}}{8} + 2\frac{\sqrt{\pi}}{2} \right) \\
+    &= \frac{1}{2\sqrt{2}} \left( \frac{\pi\sqrt{\pi}}{3} + \sqrt{\pi} \right) \\
+    &= \frac{\sqrt{\pi}}{2\sqrt{2}} \left( \frac{\pi}{3} + 1 \right) = \frac{\sqrt{\pi}}{2\sqrt{2}} \frac{\pi+3}{3} \\
+    &= \frac{\sqrt{\pi}(\pi+3)}{6\sqrt{2}}
+\end{align*}
+Рационализируем знаменатель:
+\[ L_1 = \frac{\sqrt{\pi}(\pi+3)\sqrt{2}}{6\sqrt{2}\sqrt{2}} = \frac{\sqrt{2\pi}(\pi+3)}{12} \]
+
+\section*{5. Общая длина кривой}
+Кривая состоит из двух симметричных ветвей, поэтому общая длина $L$ равна $2L_1$:
+\[ L = 2 \cdot L_1 = 2 \cdot \frac{\sqrt{2\pi}(\pi+3)}{12} \]
+\[ L = \frac{\sqrt{2\pi}(\pi+3)}{6} \]
+
+Окончательный ответ: Длина кривой равна $\displaystyle \frac{\sqrt{2\pi}(\pi+3)}{6}$.
+
+\end{document}
