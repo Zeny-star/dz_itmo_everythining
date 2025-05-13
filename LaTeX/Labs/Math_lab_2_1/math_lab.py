@@ -90,7 +90,9 @@ def update(val):
             legend_handles.append(plt.Line2D([0], [0], marker='o', color='black', markerfacecolor='black', markersize=3, label='Точки оснащения'))
 
 
-        plot_title = f'{method_titles[method]}, n={n}\nСумма = {integral_sum:.6f}'
+            
+        plot_title = f'{method_titles[method]}, n={n}\nСумма = {integral_sum:.6f}, разница = {integral_sum- (np.exp(3/2)-1)/3:.6f}'
+        #plot_title = f'{method_titles[method]}, n={n}\nСумма = {integral_sum:.6f}'
         ax.set_title(plot_title, fontsize=10)
         ax.set_xlabel('x')
         ax.set_ylabel('f(x)')

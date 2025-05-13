@@ -9,6 +9,10 @@
 \usepackage{diffcoeff,amssymb}
 \usepackage{mathtools}
 \usepackage[normalem]{ulem}
+\usepackage{physics}
+\usepackage{wrapfig}
+\usepackage{float} % для позиционирования [H]
+\usepackage{siunitx} % для градусов и единиц измерения
 
 \input{preamble}
 \input{macros}
@@ -39,16 +43,16 @@
 \end{equation}
 
 \begin{equation}
-    S_{\text{левая}} = \frac{1}{2n} \sum_{k=0}^{n-1} e^{\frac{3k}{2n}}
+    S_{\text{левая}} = \frac{1}{2n} \sum_{k=0}^{n-1} e^{\frac{3k}{2n}},
 \end{equation}
 
 \begin{equation}
-    S_{\text{средняя}} = \frac{1}{2n} \sum_{k=1}^{n} e^{3\frac{2k-1}{4n}}
+    S_{\text{средняя}} = \frac{1}{2n} \sum_{k=1}^{n} e^{3\frac{2k-1}{4n}},
 \end{equation}
 
 \begin{equation}
     S_{\text{трапеции}} = \frac{1}{4n} \sum_{k=1}^{n} e^{3\frac{k}{2n}}+e^{3\frac{k-1}{2n}} =
-    \frac{1}{4n}\left(e^{\frac{3}{2n}}+1 \right)\sum_{k=1}^{n} e^{\frac{3(k-1)}{2n}}
+    \frac{1}{4n}\left(e^{\frac{3}{2n}}+1 \right)\sum_{k=1}^{n} e^{\frac{3(k-1)}{2n}}.
 \end{equation}
 
 \qs{}{
@@ -56,10 +60,10 @@
 }
 
 \begin{enumerate}
-    \item $S_{\text{правая}} = \displaystyle\lim_ {n \to +\infty} \dfrac{3^{\frac{3}{2n}}\cdot(e^{3/2}-1)}{2n(e^{3/2n}-1)} = \dfrac{e^{3/2}-1}{3}$
-    \item $S_{\text{левая}} = \displaystyle\lim_ {n \to +\infty} \dfrac{(e^{3/2}-1)}{2n(e^{3/2n}-1)} = \dfrac{e^{3/2}-1}{3}$
-    \item $S_{\text{средняя}} = \displaystyle\lim_ {n \to +\infty} \dfrac{e^{\frac{3}{4n}}(e^{3/2}-1)}{2n(e^{3/2n}-1)} = \dfrac{e^{3/2}-1}{3}$
-    \item $S_{\text{трапеции}} = \displaystyle\lim_ {n \to +\infty} \dfrac{(e^{3/2n}+1)(e^{3/2}-1)}{4n(e^{3/2n}-1)} = \dfrac{e^{3/2}-1}{3}$
+    \item $S_{\text{правая}} = \displaystyle\lim_ {n \to +\infty} \dfrac{3^{\frac{3}{2n}}\cdot(e^{3/2}-1)}{2n(e^{3/2n}-1)} = \dfrac{e^{3/2}-1}{3}$,
+    \item $S_{\text{левая}} = \displaystyle\lim_ {n \to +\infty} \dfrac{(e^{3/2}-1)}{2n(e^{3/2n}-1)} = \dfrac{e^{3/2}-1}{3}$,
+    \item $S_{\text{средняя}} = \displaystyle\lim_ {n \to +\infty} \dfrac{e^{\frac{3}{4n}}(e^{3/2}-1)}{2n(e^{3/2n}-1)} = \dfrac{e^{3/2}-1}{3}$,
+    \item $S_{\text{трапеции}} = \displaystyle\lim_ {n \to +\infty} \dfrac{(e^{3/2n}+1)(e^{3/2}-1)}{4n(e^{3/2n}-1)} = \dfrac{e^{3/2}-1}{3}$.
 
 \end{enumerate}
 \qs{}{
@@ -74,7 +78,7 @@
 \int _0^{0.5} e^{3x} \, dx = \left[ \frac{e^{3x}}{3} \right]_0^{0.5} = \frac{e^{3/2}-1}{3}
 \]
 \qs{}{
-Найдите погрешность оценки, сравните ее с теоретической погрешностью
+    Вывести формулу для оценки погрешности.
 }
 \noindent Докажем формулы для погрешности:
 \begin{enumerate}
@@ -132,28 +136,308 @@ f(x_k) = f(x_{k-1})+f'(x_{k-1})(x_k-x_{k-1})+\dfrac{f''(\xi_k)(x_k-x_{k-1})^2}{2
 \end{enumerate}
 
 \qs{}{
-Вывести формулу для оценки погрешности.
+    Найдите погрешность оценки, сравните ее с теоретической погрешностью
+
 }
 \begin{enumerate}
 \item
 \noindent Погрешность для правых/левых прямоугольников
 \[
-    |R_n| \le \max_{x\in[a, b]}|f'(x)|\dfrac{(b-a)^2}{2n} = \max_{x\in[0, 0.5]}|3e^{3x}|\dfrac{0.5^2}{2n} = \dfrac{3e^{1.5}}{8n}
+    |R_n| \le \max_{x\in[a, b]}|f'(x)|\dfrac{(b-a)^2}{2n} = \max_{x\in[0, 0.5]}|3e^{3x}|\dfrac{0.5^2}{2n} = \dfrac{3e^{1.5}}{8n},
 \]
-
+тогда для n=10 погрешность будет равна $0.168$, для n=100 погрешность будет равна $0.0168$
 \item 
 \noindent Погрешность для средних прямоугольников
 
 \[
 |R_n| \le \max_{x\in [a, b]}|f''(x)|\dfrac{(b-a)^3}{24n^2} = \max_{x\in[0, 0.5]}|9e^{3x}|\dfrac{0.5^3}{24n^2} = \dfrac{9e^{1.5}}{192n^2}
 \]
+тогда для n=10 погрешность будет равна $0.042$, для n=100 погрешность будет равна $0.00042$
 \item 
 \noindent Погрешность для трапеций
 \[
 |R_n| \le \max_{x\in [a, b]}|f''(x)|\dfrac{(b-a)^3}{12n^2} = \max_{x\in[0, 0.5]}|9e^{3x}|\dfrac{0.5^3}{12n^2} = \dfrac{9e^{1.5}}{96n^2}
 \]
+тогда для n=10 погрешность будет равна $0.063$, для n=100 погрешность будет равна $0.00063$
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=0.8\textwidth]{mis_1.png}
+\end{center}
+\end{figure}
 
-\end{enumerate}
+
 \dots дальше Григорий
 
+\section{\textbf{ Маятник.}}
+
+\subsection{Малые колебания}
+
+\subsubsection{Исследование теоретического изменения угла от практического}
+
+Для эксперимента была использована нить, длинной $L = 0.94 \text{ м}$. В таком случае, теоретическая частота $\omega = \sqrt{\dfrac{g}{L}} =  \sqrt{\dfrac{9.82}{0.94}} \approx 3.23 \text{ } c^{-1}$
+
+Тогда, теоретическая зависимость угла от времени: $\theta = \theta_0\cos{(\omega t)}$
+
+Начальные углы в каждой серии: 
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+        \hline 
+        1 серия (малые углы) & 2 серия (малые углы) & 3 серия (малые углы) & 
+        1 серия (большие углы) & 2 серия (большие углы) & 3 серия (большие углы) \\ 
+        \hline 
+        $\theta_0 = \ang{14.61}$ & $\theta_0 = \ang{6.22}$ & $\theta_0 = \ang{13.69}$ & 
+        $\theta_0 = \ang{54.72}$ & $\theta_0 = \ang{55.00}$ & $\theta_0 = \ang{43.20}$ \\ 
+        \hline
+    \end{tabular}
+    \caption{Начальные углы}
+    \label{tab:value}
+\end{table}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=1.11\textwidth]{1.png}
+    \caption{1 серия}
+\end{center}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=1.11\textwidth]{2.png}
+    \caption{2 серия}
+\end{center}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=1.11\textwidth]{3.png}
+    \caption{3 серия}
+\end{center}
+\end{figure}
+
+\subsubsection{Исследование изменения теоретического периода от практического}
+
+Теоретически, период колебаний будет рассчитываться как $T = 2\pi\sqrt{\dfrac{l}{g}} = 1.94 \text{ с}$
+
+Для серий эти периоды были равны (вычисляем как время 5 колебаний деленное на 5):
+
+$T_1 \approx 2.10 \text{ с}$
+$T_2 \approx 2.19 \text{ с}$
+$T_3 \approx 2.01 \text{ с}$
+
+\subsubsection{Объяснение перехода в (3)}
+
+$\dot\theta = \pm\omega\sqrt{\theta_0^2-\theta^2}
+\\
+\dfrac{\dd\theta}{\dd t} = \pm\omega\sqrt{\theta_0^2-\theta^2}
+\\
+\dfrac{\dd\theta}{\sqrt{\theta_0^2-\theta^2}} = \pm\omega\dd t
+\\
+\int\limits_{\theta_0}^{\theta}\dfrac{\dd\theta}{\sqrt{\theta_0^2-\theta^2}} = \left.\arcsin{\dfrac{\theta}{\theta_0}} \right|_{\theta=\theta_0}^{\theta}=\arcsin{\dfrac{\theta}{\theta_0}} - \arcsin{\dfrac{\theta_0}{\theta_0}} = \arcsin{\dfrac{\theta}{\theta_0}} - \dfrac{\pi}{2}
+\\
+\int\limits_{0}^{t}\pm\omega\dd t = \pm\omega t \Rightarrow \dfrac{\theta}{\theta_0} = \sin{\left(\pm\omega t + \dfrac{\pi}{2}\right)} = \cos{(\omega t)} \text{ Ч.Т.Д.}
+$
+\subsubsection{Оценка погрешностей}
+
+У нас имеется три серии, в который теоретически период должен быть одинаковый. Среднее значение практического периода колебания:
+
+$\overline{T} = \dfrac{\sum T}{3} = 2.10 \text{ c}$
+
+$\Delta t = \sqrt{t_{0.9;3}^2\dfrac{\sum(T_i-\overline{T})^2}{6}+\Delta t_{\text{пр}}^2} = 0.18 \text{ c}$
+
+$\varepsilon_t = 8.6 \text{ \%}$
+
+Тогда, значение $T$ с доверительным интервалом:
+
+$T = 2.10\pm 0.18 \text{ c}$
+
+Выводы: Теоретическое значение (1,94 с) не лежит в доверительном интервале полученного практически значения. Данное отличие может быть обусловлено наличием вязкого трения, т к при наличии такого трения уменьшается частота колебаний $\Rightarrow$ увеличивается период колебаний. Кроме того, не все колебания получились "идеально" малыми - двух из трех экспериментах угол чуть больше $\ang{10}$. 
+
+Анализируя графики различия теоретического изменения угла от практически полученного можно наблюдать, что чем дольше идет наблюдение, тем больше погрешность. Если вначале это может быть связано с приближениями мат модели, то в конце большее влияние на погрешность поведения угла оказывает как раз различие в периоде.
+
+\subsection{Нелинейные колебания}
+
+\subsubsection{Исследование теоретического периода от практического}
+
+Используя значения начальных углов в таблице, найдем теоретическое значение периода колебания (вычисляем инетеграл по сумме средних прямоугольников)
+\\
+$
+T_1=2.02  \text{ с}
+\\
+T_2=2.02\text{ с}
+\\
+T_3=2.01\text{ с}
+$
+
+%Погрешность:
+% \\
+% $
+% f'(x) = \dfrac{\cos\left(x\right)\,\sin\left(x\right)}{\left({\cos^{2}\left(x\right)-\cos^{2}\left(\theta_0\right)}\right)^{\frac{3}{2}}}$ -- на интервале $[0;1)$ монотонно растет $\Rightarrow$ $\max{\abs{f'{(x)}}} = f'(\theta_0)$
+% \\
+% $
+% f'(0.96) = 
+% $
+
+
+
+Графики зависимости практического изменения угла от времени:
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=0.8\textwidth]{4.png}
+    \caption{$\theta_0 = \ang{54.72}$}
+\end{center}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=0.8\textwidth]{5.png}
+    \caption{$\theta_0 = \ang{55.00}$}
+\end{center}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=0.8\textwidth]{6.png}
+    \caption{$\theta_0 = \ang{43.20}$}
+\end{center}
+\end{figure}
+
+
+
+Практически полученное значение периода колебаний от времени:
+\\
+$T_{1_{\text{прак}}} = 2.06 \text{ с}$
+\\
+$T_{2_{\text{прак}}} = 2.06 \text{ с}$
+\\
+$T_{3_{\text{прак}}} = 2.02 \text{ с}$
+
+Таким образом, отличие теоретического периода от практического:
+\\
+$
+\Delta_1 = 0.04\text{ с}
+\\
+\Delta_2 = 0.04\text{ с}
+\\
+\Delta_3 = 0.01\text{ с}
+$
+
+\subsubsection{Доказательство формулы (6)}
+
+
+\begin{equation}
+\cos\theta - \cos\theta_0 = 2\sin^2\left(\frac{\theta_0}{2}\right) - 2\sin^2\left(\frac{\theta}{2}\right) = 2k^2 - 2\sin^2\left(\frac{\theta}{2}\right)
+\label{eq:trig_identity}
+\end{equation}
+где введено обозначение $k \equiv \sin\left(\frac{\theta_0}{2}\right)$.
+
+
+Введём новую переменную $u$ через соотношение:
+\begin{equation}
+\sin u = \frac{\sin\left(\frac{\theta}{2}\right)}{k}
+\label{eq:substitution}
+\end{equation}
+
+
+Продифференцируем подстановку:
+\begin{equation}
+\cos u \dd{u} = \frac{\cos\left(\frac{\theta}{2}\right)}{2k} \dd{\theta}
+\end{equation}
+
+\begin{equation}
+\dd{\theta} = \frac{2k \cos u}{\cos\left(\frac{\theta}{2}\right)} \dd{u}
+\end{equation}
+Учитывая, что $\cos\left(\frac{\theta}{2}\right) = \sqrt{1 - k^2\sin^2 u}$, получаем:
+\begin{equation}
+\dd{\theta} = \frac{2k \cos u}{\sqrt{1 - k^2\sin^2 u}} \dd{u}
+\label{eq:differential}
+\end{equation}
+
+
+Используя \eqref{eq:trig_identity}, выразим знаменатель:
+\begin{equation}
+\sqrt{\cos\theta - \cos\theta_0} = \sqrt{2}\sqrt{k^2 - \sin^2\left(\frac{\theta}{2}\right)} = \sqrt{2}k\sqrt{1 - \sin^2 u} = \sqrt{2}k\cos u
+\end{equation}
+
+
+
+\begin{equation}
+\int \frac{\dd{\theta}}{\sqrt{\cos\theta - \cos\theta_0}} = \int \frac{1}{\sqrt{2}k\cos u} \cdot \frac{2k\cos u}{\sqrt{1 - k^2\sin^2 u}} \dd{u} = \sqrt{2} \int \frac{\dd{u}}{\sqrt{1 - k^2\sin^2 u}}
+\end{equation}
+
+
+\begin{itemize}
+\item При $\theta = 0$: $\sin u = 0 \Rightarrow u = 0$
+\item При $\theta = \theta_0$: $\sin u = 1 \Rightarrow u = \frac{\pi}{2}$
+\end{itemize}
+
+Итоговое преобразование
+\begin{equation}
+\int\limits_0^{\theta_0} \frac{\dd{\theta}}{\sqrt{\cos\theta - \cos\theta_0}} = \sqrt{2} \int\limits_0^{\pi/2} \frac{\dd{u}}{\sqrt{1 - k^2\sin^2 u}} = \sqrt{2} F\left(\frac{\pi}{2}, k\right)
+\label{eq:result}
+\end{equation}
+где $F(\varphi,k)$ -- неполный эллиптический интеграл первого рода.
+
+
+\subsubsection{Вычисление эллиптического интеграла}
+
+\[
+K(k) = \int\limits_0^{\pi/2} \frac{du}{\sqrt{1 - k^2 \sin^2 u}} 
+      = \frac{\pi}{2} \sum_{n=0}^\infty \left( \frac{(2n-1)!!}{(2n)!!} k^n \right)^2,
+      \quad (-1)!! = 1.
+\]
+
+\[
+K(\sin{0.96}) = \int\limits_0^{\pi/2} \frac{du}{\sqrt{1 - k^2 \sin^2 u}} 
+      = \frac{\pi}{2} \left(\left( \frac{(-1)!!}{(0)!!}\cdot \sin^0(0.96) \right)^2 +\left( \frac{(2-1)!!}{(2)!!}\cdot \sin(0.96) \right)^2\right) = 1.83 \text{, n  = 1}
+\]
+\[
+K(\sin{0.96}) = \int\limits_0^{\pi/2} \frac{du}{\sqrt{1 - k^2 \sin^2 u}} = 1.93 \text{, n  = 2}
+\]
+\[
+K(\sin{0.96}) = \int\limits_0^{\pi/2} \frac{du}{\sqrt{1 - k^2 \sin^2 u}} = 1.98 \text{, n  = 3}
+\]
+
+
+\[
+K(\sin{0.75}) = \int\limits_0^{\pi/2} \frac{du}{\sqrt{1 - k^2 \sin^2 u}} 
+      = \frac{\pi}{2} \left(\left( \frac{(-1)!!}{(0)!!}\cdot \sin^0(0.96) \right)^2 +\left( \frac{(2-1)!!}{(2)!!}\cdot \sin(0.96) \right)^2\right) = 1.75 \text{, n  = 1}
+\]
+\[
+K(\sin{0.75}) = \int\limits_0^{\pi/2} \frac{du}{\sqrt{1 - k^2 \sin^2 u}} = 1.80 \text{, n  = 2}
+\]
+\[
+K(\sin{0.75}) = \int\limits_0^{\pi/2} \frac{du}{\sqrt{1 - k^2 \sin^2 u}} = 1.81 \text{, n  = 3}
+\]
+
+Можно сделать вывод, что при использовании трех слагаемых сумма стремительно приближается к вычисленному численно значению интеграла (это очень круто).
+
+\subsubsection{Итоговые погрешности}
+
+\[
+ \left( \frac{1}{\sqrt{\cos \theta - \cos \theta_0}} \right)'' = \frac{3 \sin^2 \theta}{4 (\cos \theta - \cos \theta_0)^{5/2}} + \frac{\cos \theta}{2 (\cos \theta - \cos \theta_0)^{3/2}}
+\]
+
+Очевидно, что максимум значения этой производной при $\theta\rightarrow\theta_0$. . Тогда, для:
+\\
+$\theta_0 = 0.75$
+\\
+Чтобы избавиться от особенностей, делаем замену:
+\\
+$t = \sqrt{0.75-\theta}$. Тогда исходный интеграл и его вторая производная принимают следующий вид:
+\\
+\[
+\left(\frac{t }{\sqrt{\cos(0.75 - t^2) - \cos 0.75}}\right)'' = \]
+\[
+f''(t) = \frac{-2u \cdot (2t \sin \phi) - t \cdot (2 \sin \phi + 4t^2 \cos \phi) \cdot u + \frac{3}{2} t \cdot (2t \sin \phi)^2}{u^{5/2}}
+\]
+
+где:
+\begin{itemize}
+    \item \( u = \cos(0.75 - t^2) - \cos 0.75 \),
+    \item \( \phi = 0.75 - t^2 \).
+\end{itemize}
+
+В этом случае, погрешность вычисленного интеграла $\abs{R_n}\approx3\cdot10^{-7}$
+
+Аналогично делаем для $\theta\approx0.96$. В этом случае замена: $t = \sqrt{0.75-\theta}$. В этом случае, погрешность составит $\abs{R_n} \approx 9\cdot10^{-7}$
 \end{document}
