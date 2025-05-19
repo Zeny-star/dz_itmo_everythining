@@ -170,8 +170,28 @@ L = \int\limits_{a}^{b}\sqrt{1+\left(\frac{\dl y}{\dl x}\right)^2 + \left(\frac{
     \]
     Для этого сделаем замену $t = e^{2x}$ и навесим модуль
     \[
-\int\limits_{1}^{\infty} \dfrac{1}{2}\left(\sqrt{t}+\dfrac{\ln t}{2}\right)\left|\sin t\right|\dfrac{\dl t}{t}\,
+        \int\limits_{1}^{\infty} \dfrac{1}{2}\left(\sqrt{t}+\dfrac{\ln t}{2}\right)\left|\sin t\right|\dfrac{\dl t}{t} = \dfrac{1}{4}\left(\int \limits_1^{\infty} \dfrac{2|\sin t|\dl t}{\sqrt{t}}+\int\limits_1^{\infty} \dfrac{\ln t|\sin t|\dl t}{t}\right)\,
     \]
+    оценим $|\sin t| \le \sin^2t$, тогда рассмотрим первый интеграл 
+    \[
+        \int\limits_{1}^{\infty} \dfrac{|\sin t|\dl t}{\sqrt{t}} \le \int\limits_{1}^{\infty} \dfrac{\sin^2 t}{\sqrt{t}}\, \dl t = \int\limits_{1}^{\infty} \left(1-\cos 2t\right)\dfrac{\dl t}{\sqrt{t}} = \int\limits_{1}^{\infty} \dfrac{\dl t}{\sqrt{t}} - \int\limits_{1}^{\infty} \dfrac{\cos 2t}{2\sqrt{t}}\, \dl t,
+    \]
+    первый интеграл расходится, а второй сходится (например по Дирихле, те $\sin 2t$ --- огр., $\sqrt{t}$ идет к 0 монотонно), значит первый интеграл расходится, те изначальный интеграл не сход. абс.\\
+    Теперь проверим на условную сходимость, понятно что $\left(\dfrac{1}{\sqrt{t}}+\dfrac{\ln t}{t}\right)$ монотонно убывает к 0, к тому же $\cos t$ огр., те по Дирихле интеграл сходится.\\
+\item 
+    \[
+        \int\limits_{0}^{1}(x-\sin x)^{-1} \dl x \sim \int\limits_{0}^{1}\dfrac{1}{x^3}\dl x,
+    \]
+    понятно, что интеграл расходится (можно сделать замену $1/x$), тогда все становится совсем ясно. И да, тк от 0 до 1 $x > \sin x$, то абс. сход. экв-на обычной сход.\\
+\item 
+    \[
+    \int\limits_0^1 \dfrac{\sin(\pi/x)}{x(1-x)^{3/2}}\,\dl x
+    \]
+    сделаем замену $t = \dfrac{\pi}{x}$, тогда
+    \[
+        -\int\limits_{\pi}^{\infty} \dfrac{\sin t\dl t}{t\left(1-\dfrac{\pi}{t}\right)^{3/2}} = -\int\limits_{\pi}^{\infty} \dfrac{\sin t \dl t}{\left(t^{3/2}-\pi\sqrt{t}\right)}
+    \]
+    теперь надо рассмотреть две ситуации, когда $t \to \pi$ и когда $t \to \infty$, начнем с $t \to \pi$, понятно что это эквивалентно сходимости в точке 0
     \end{enumerate}
 
 \end{document}
